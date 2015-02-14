@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/MainConteneur" >
+
+    <TextView
+        android:id="@+id/stat_competition"
+        android:text="@string/label_competition"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        style="@style/HeaderTableau" />
+
+    <TextView
+        android:id="@+id/stat_classement_point"
+        style="@style/HeaderTableau"
+        android:text="1e"
+        android:textColor="@color/table_text"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="70dp" />
+
+    <TextView
+        android:id="@+id/stat_point"
+        style="@style/HeaderTableau"
+        android:text="130 pts"
+        android:textColor="@color/table_text"
+        android:textStyle="italic"
+        android:layout_alignTop="@+id/stat_pourcent"
+        android:layout_alignRight="@+id/stat_classement_point"
+        android:layout_alignEnd="@+id/stat_classement_point" />
+
+    <TextView
+        android:id="@+id/stat_classement_pourcent"
+        style="@style/HeaderTableau"
+        android:text="2e"
+        android:textColor="@color/table_text"
+        android:layout_alignTop="@+id/stat_competition"
+        android:layout_alignBottom="@+id/stat_competition"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:id="@+id/stat_pourcent"
+        style="@style/HeaderTableau"
+        android:text="50,42%"
+        android:layout_below="@+id/stat_classement_pourcent"
+        android:layout_alignParentRight="true"
+        android:textStyle="italic"
+    />
+
+</RelativeLayout>

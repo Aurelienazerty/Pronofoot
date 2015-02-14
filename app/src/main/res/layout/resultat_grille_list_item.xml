@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <TextView
+        style="@style/ClassementPosition"
+        android:text="100."
+        android:id="@+id/resultat_classement"
+    />
+
+    <TextView
+        style="@style/ClassementNom"
+        android:text="Aurelienazerty"
+        android:id="@+id/resultat_username"
+        android:layout_toRightOf="@+id/resultat_classement"
+    />
+
+    <TextView
+        style="@style/ClassementValeur"
+        android:text="140 point"
+        android:id="@+id/resultat_point"
+        android:layout_toLeftOf="@+id/resultat_pourcent"/>
+
+    <TextView
+        style="@style/ClassementValeur2"
+        android:text="100,00%"
+        android:id="@+id/resultat_pourcent"
+        android:layout_alignParentRight="true"/>
+
+</RelativeLayout>

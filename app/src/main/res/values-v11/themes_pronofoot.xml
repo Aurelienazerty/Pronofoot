@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Generated with http://android-holo-colors.com -->
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <style name="Pronofoot" parent="@style/_Pronofoot"/>
+
+  <style name="_Pronofoot" parent="android:Theme.Holo.Light">
+
+    <item name="android:editTextBackground">@drawable/pronofoot_edit_text_holo_light</item>
+
+    <item name="android:textColorHighlight">#9933b5e5</item>
+    <item name="android:textSelectHandleLeft">@drawable/pronofoot_text_select_handle_left</item>
+    <item name="android:textSelectHandleRight">@drawable/pronofoot_text_select_handle_right</item>
+    <item name="android:textSelectHandle">@drawable/pronofoot_text_select_handle_middle</item>
+
+    <item name="android:autoCompleteTextViewStyle">@style/AutoCompleteTextViewPronofoot</item>
+
+    <item name="android:listChoiceIndicatorMultiple">@drawable/pronofoot_btn_check_holo_light</item>
+
+    <item name="android:listChoiceIndicatorSingle">@drawable/pronofoot_btn_radio_holo_light</item>
+
+    <item name="android:buttonStyle">@style/ButtonPronofoot</item>
+
+    <item name="android:imageButtonStyle">@style/ImageButtonPronofoot</item>
+
+    <item name="android:dropDownSpinnerStyle">@style/SpinnerPronofoot</item>
+
+    <item name="android:progressBarStyleHorizontal">@style/ProgressBarPronofoot</item>
+
+    <item name="android:seekBarStyle">@style/SeekBarPronofoot</item>
+
+    <item name="android:ratingBarStyle">@style/RatingBarPronofoot</item>
+
+    <item name="android:ratingBarStyleIndicator">@style/RatingBarBigPronofoot</item>
+
+    <item name="android:ratingBarStyleSmall">@style/RatingBarSmallPronofoot</item>
+
+    <item name="android:buttonStyleToggle">@style/TogglePronofoot</item>
+
+    <item name="android:listChoiceBackgroundIndicator">@drawable/pronofoot_list_selector_holo_light</item>
+
+    <item name="android:activatedBackgroundIndicator">@drawable/pronofoot_activated_background_holo_light</item>
+
+    <item name="android:fastScrollThumbDrawable">@drawable/pronofoot_fastscroll_thumb_holo</item>
+
+  </style>
+
+</resources>

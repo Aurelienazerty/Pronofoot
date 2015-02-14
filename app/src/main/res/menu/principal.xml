@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/refresh"
+        android:icon="@drawable/ic_action_refresh"
+        android:showAsAction="always"
+        android:title="@string/refresh_action" >
+    </item>
+
+    <item
+        android:id="@+id/profile"
+        android:icon="@android:drawable/ic_popup_reminder"
+        android:showAsAction="never|withText"
+        android:title="@string/page_profile" >
+    </item>
+
+    <item
+        android:id="@+id/forum"
+        android:showAsAction="never|withText"
+        android:icon="@android:drawable/sym_action_chat"
+        android:title="@string/forum_link_label" >
+    </item>
+
+    <item
+        android:id="@+id/reglement"
+        android:showAsAction="never|withText"
+        android:icon="@android:drawable/ic_dialog_info"
+        android:title="@string/reglement_link_label" >
+    </item>
+
+
+    <item
+        android:id="@+id/logout"
+        android:showAsAction="never|withText"
+        android:icon="@android:drawable/ic_lock_power_off"
+        android:title="@string/logout_action" >
+    </item>
+
+</menu>

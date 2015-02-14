@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/MainConteneur" >
+
+
+    <RadioGroup
+        android:id="@+id/grille_prono"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <RadioButton
+            android:id="@+id/grille_prono_domicile"
+            style="@style/RadioButtonPronofoot"
+            android:gravity="center|left"
+            android:onClick="onCheckedChanged" />
+
+        <RadioButton
+            android:id="@+id/grille_prono_null"
+            style="@style/RadioButtonPronofoot"
+            android:gravity="center"
+            android:onClick="onCheckedChanged" />
+
+        <RadioButton
+            android:id="@+id/grille_prono_exterieur"
+            style="@style/RadioButtonPronofoot"
+            android:gravity="center|left"
+            android:onClick="onCheckedChanged" />
+
+        <TextView
+            android:id="@+id/grille_id_match" style="@style/Invisible" />
+
+        <TextView
+            android:id="@+id/grille_id_equipe_locale" style="@style/Invisible" />
+
+        <TextView
+            android:id="@+id/grille_id_equipe_exterieure" style="@style/Invisible" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/grille_date_match"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:gravity="center_vertical|start"
+        android:text="@string/grille_date"
+        style="@style/DateProno" />
+
+    <TextView
+        android:id="@+id/grille_equipe_domicile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/grille_prono"
+        android:layout_toRightOf="@+id/grille_date_match"
+        android:gravity="center_vertical|right"
+        android:text="@string/label_equipe_domicile"
+        android:layout_alignParentEnd="false"
+        style="@style/NomEquipe" />
+
+    <TextView
+        android:id="@+id/grille_equipe_exterieur"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/grille_prono"
+        android:gravity="center_vertical|left"
+        android:text="@string/label_equipe_exterieure"
+        style="@style/NomEquipe" />
+
+</RelativeLayout>

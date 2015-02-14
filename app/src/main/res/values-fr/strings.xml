@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <!-- Main -->
+    <string name="app_name">Pronofoot</string>
+    <string name="refresh_action">Rafraichir</string>
+    <string name="logout_action">Se déconnecter</string>
+    <string name="forum_link_label">Support / Suggestions</string>
+    <string name="reglement_link_label">Règlement</string>
+    <string name="espace_pronostique">Espace pronostique</string>
+    <string name="home">Résultats</string>
+
+    <!-- Partie Profil -->
+    <string name="page_profile">Préférences</string>
+    <string name="username">Aurelienazerty</string>
+    <string name="label_notification">Recevoir des notifications</string>
+    <string name="label_information">Recevoir les informations</string>
+    <string name="label_newsletter">Recevoir la newsletter</string>
+    <string name="label_home_page">Démarrer sur la page de résultat</string>
+    <string name="error_loading_profil">Echec lors du chargement du profil</string>
+    <string name="error_modifier_profil">Echec lors de la mise à jour du profil</string>
+    <string name="label_save_profil">Enregistrer</string>
+    <string name="label_more_profil">Profil en ligne</string>
+
+    <!-- Partie résultats -->
+    <string name="page_classement_point">Classement</string>
+    <string name="page_classement_pourcent">Classement %</string>
+    <string name="page_derniere_grille">Dernière grille</string>
+    <string name="no_classement">Pas de classement</string>
+    <string name="error_loading_classement">Echec lors du chargement du classement</string>
+    <string name="error_loading_resultat">Echec lors du chargement du resultat</string>
+    <string name="label_nom_grille">Nom de la grille</string>
+    <string name="grille_date">27/10 11:25</string>
+    <string name="format_date">dd/MM HH:mm</string>
+    <string name="unite_point">Points</string>
+    <string name="unite_pourcent">%</string>
+    <string name="unite_classement">e</string>
+
+    <!-- Partie pronostique -->
+    <string name="page_grille">Pronostiquez</string>
+    <string name="page_resultat">Résultats</string>
+    <string name="error_loading_grille">Echec lors du chargement de la grille</string>
+    <string name="no_grille">Pas de grille, cliquez sur recharger</string>
+    <string name="submit_grille">Envoyer mon pronostique</string>
+    <string name="msg_prono_save">Pronostiques enregistrés</string>
+    <string name="error_sending_prono">Echec lors de l\'envoie du pronostique</string>
+    <string name="error_loading_list_grille">Echec lors du chargement des grilles</string>
+    <string name="label_legende">Légende :</string>
+    <string name="label_legende_bon_prono">Pronostique correct</string>
+    <string name="label_legende_mauvais_prono">Mauvais pronostique</string>
+    <string name="label_legende_resultat">Résultat (en cas de mauvais pronostique)</string>
+    <string name="wait">Patientez</string>
+    <string name="msg_sending_prono">Envoi des pronos</string>
+
+    <!-- Partie push -->
+    <string name="alerte_pronofoot">Alerte Pronofoot</string>
+    <string name="ignore">Ignorer</string>
+    <string name="open">Ouvrir</string>
+
+    <!-- AuthenticatorActivity -->
+    <string name="label_username">Votre nom d\'utlisateur</string>
+    <string name="label_password">Mode de passe</string>
+    <string name="label_sign_in">Connexion</string>
+    <string name="label_sign_up">S\'enregistrer</string>
+    <string name="message_signing_in">Connexion…</string>
+    <string name="blank_field_warning">Veuillez renseigner les champs</string>
+    <string name="signup_link">Nouveau ? &lt;a href=http://www.team-azerty.com/forum/ucp.php?mode=register>Cliquez ici&lt;/a> pour créer un compte.</string>
+    <string name="message_bad_credentials">Login ou mot de passe incorrect</string>
+    <string name="message_auth_failed">Veuillez rentrer un mot de passe valide</string>
+    <string name="message_auth_failed_new_account">Veuillez rentrer un mot de passe &amp; login valide</string>
+    <string name="error_connect">Login ou mot de passe incorrect</string>
+    <string name="error_network">Connexion impossible</string>
+    <string name="lost_password">&lt;a href=http://www.team-azerty.com/forum/ucp.php?mode=sendpassword>J\'ai perdu mon mot de passe&lt;/a></string>
+
+    <!-- Register -->
+    <string name="label_password_register">Mot de passe (min 5 caractères)</string>
+    <!--
+    <string name="label_password_bis">Rentrez de nouveau le mot de passe</string>
+    <string name="label_password_error">Les mots de passe ne correspondent pas</string>
+    -->
+    <string name="label_mail">Adresse électronique valide</string>
+    <string name="mail_error">Adresse électronique incorrecte ou déjà utlisée</string>
+    <string name="username_error">Nom d\'utlisateur incorrect ou déjà utlisé</string>
+    <string name="register_finish">Utilisateur créé, vous pouvez vous connecter</string>
+
+    <!-- Stat User -->
+    <string name="label_saison">/ saison</string>
+    <string name="saison">2013-2014</string>
+    <string name="label_competition">Compétition</string>
+    <string name="label_point">Points</string>
+    <string name="label_pourcent">%</string>
+    <string name="no_partcipation">-</string>
+    <string name="label_more_stat">Plus de statistiques</string>
+    <string name="no_stat">Pas de statistiques</string>
+    <string name="error_loading_stats">Echec lors du chargement des statistiques</string>
+
+</resources>

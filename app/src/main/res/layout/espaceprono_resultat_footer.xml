@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/MainConteneur">
+
+
+    <TextView
+        android:id="@+id/legende"
+        android:layout_centerHorizontal="false"
+        android:text="@string/label_legende"
+        style="@style/TextHeader"  />
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/legende">
+
+        <TableRow
+            android:id="@+id/tableRow"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true">
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0">
+
+                <RadioButton
+                    android:id="@+id/legende_bouton_ok"
+                    style="@style/RadioOk"
+                    android:clickable="false" />
+
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/legend_ok"
+                android:layout_column="1"
+                android:height="32dp"
+                android:gravity="center_vertical"
+                android:text="@string/label_legende_bon_prono"
+                style="@style/TextHeader" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <RadioGroup
+                android:id="@+id/groupe_legend2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0">
+
+                <RadioButton
+                    android:id="@+id/legende_bouton_ko"
+                    style="@style/RadioKo"
+                    android:clickable="false" />
+
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/legend_ko"
+                android:layout_column="1"
+                android:height="32dp"
+                android:gravity="center_vertical"
+                android:text="@string/label_legende_mauvais_prono"
+                style="@style/TextHeader" />
+
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <RadioGroup
+                android:id="@+id/groupe_legend3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0">
+
+                <RadioButton
+                    android:id="@+id/legende_bouton_res"
+                    style="@style/RadioButtonPronofoot"
+                    android:checked="true"
+                    android:clickable="false" />
+
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/legend_res"
+                android:layout_column="1"
+                android:height="32dp"
+                android:gravity="center_vertical"
+                android:text="@string/label_legende_resultat"
+                style="@style/TextHeader" />
+
+        </TableRow>
+    </TableLayout>
+
+</RelativeLayout>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/MainConteneur">
+
+    <Button
+        android:id="@+id/buttonMoinsProno"
+        android:onClick="previousGrilleProno"
+        style="@style/BoutonNavigationMoins"
+     />
+
+    <Button
+        android:id="@+id/buttonPlusProno"
+        android:onClick="nextGrilleProno"
+        style="@style/BoutonNavigationPlus"
+    />
+
+    <TextView
+        android:id="@+id/grille_nom_grille"
+        android:text="@string/label_nom_grille"
+        style="@style/TextHeader"
+    />
+
+    <TextView
+        android:id="@+id/grille_id_grille"
+        style="@style/Invisible" />
+
+
+    <TextView
+        android:id="@+id/lbl_victoire_domicile"
+        android:width="32dp"
+        android:gravity="center_horizontal"
+        android:text="@string/label_victoire_domicile"
+        android:layout_below="@id/grille_nom_grille"
+        android:layout_toLeftOf="@+id/lbl_victoire_null"
+        style="@style/HeaderTableau" />
+
+    <TextView
+        android:id="@+id/lbl_victoire_null"
+        android:width="32dp"
+        android:text="@string/label_victoire_null"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_below="@id/grille_nom_grille"
+        style="@style/HeaderTableau"/>
+
+    <TextView
+        android:id="@+id/lbl_victoire_exterieur"
+        android:width="32dp"
+        android:gravity="center_horizontal"
+        android:text="@string/label_victoire_exterieur"
+        android:textColor="@color/table_text"
+        android:layout_below="@id/grille_nom_grille"
+        android:layout_toRightOf="@+id/lbl_victoire_null"
+        style="@style/HeaderTableau"
+    />
+
+</RelativeLayout>

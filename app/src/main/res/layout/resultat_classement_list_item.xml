@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <TextView
+        style="@style/ClassementPosition"
+        android:text="15."
+        android:gravity="right"
+        android:id="@+id/classement_classement"
+    />
+
+    <TextView
+        style="@style/ClassementVariation"
+        android:text="+130"
+        android:id="@+id/classement_variation"
+        android:layout_toRightOf="@+id/classement_classement"/>
+
+    <TextView
+        style="@style/ClassementNom"
+        android:text="Aurelienazerty"
+        android:id="@+id/classement_username"
+        android:layout_toRightOf="@+id/classement_variation"/>
+
+    <TextView
+        style="@style/ClassementValeur"
+        android:text="140 point"
+        android:id="@+id/classement_valeur"
+        android:layout_alignParentRight="true"/>
+
+</RelativeLayout>

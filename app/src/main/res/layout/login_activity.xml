@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_background"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_signup"
+        style="@style/ShadowText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/stripe_repeat"
+        android:gravity="center"
+        android:padding="5dp"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/text"
+        android:textColorLink="@color/text_link" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="10dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingTop="5dp">
+
+            <TextView
+                android:id="@+id/et_lblusername"
+                style="@style/Label"
+                android:text="@string/label_username" />
+
+            <EditText
+                android:id="@+id/et_username"
+                style="@style/SignInEditText"
+                android:imeOptions="actionNext"
+                android:inputType="textVisiblePassword|textNoSuggestions"
+                android:nextFocusDown="@+id/et_password" />
+
+            <TextView
+                android:id="@+id/et_lblpassword"
+                style="@style/Label"
+                android:text="@string/label_password" />
+
+            <EditText
+                android:id="@+id/et_password"
+                style="@style/SignInEditText"
+                android:imeOptions="actionDone"
+                android:inputType="textPassword"
+                android:password="true" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingTop="20dp">
+
+                <Button
+                    android:id="@+id/b_signin"
+                    style="@style/BouttonPronofoot"
+                    android:onClick="handleLogin"
+                    android:text="@string/label_sign_in"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+
+                <Button
+                    android:id="@+id/b_signup"
+                    style="@style/BouttonPronofoot"
+                    android:onClick="goRegister"
+                    android:text="@string/label_sign_up"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/lost_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <ProgressBar
+                android:id="@+id/login_loading"
+                style="@style/ListSpinner"
+                android:layout_gravity="center_horizontal" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <fragment
+        android:id="@+id/vp_ads"
+        android:name="com.pronofoot.teamazerty.app.ui.AdFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+     />
+
+</LinearLayout>

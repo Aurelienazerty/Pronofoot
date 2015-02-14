@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="BoutonNavigationPlus" parent="android:Widget.Button">
+        <item name="android:background">@drawable/ic_action_forward</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <!--<item name="android:layout_alignParentStart">false</item>-->
+        <item name="android:width">32dp</item>
+        <item name="android:height">32dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+</resources>

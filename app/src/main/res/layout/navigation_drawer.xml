@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/nav_background"
+              android:gravity="center_horizontal">
+
+    <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/home"
+            android:text="@string/home"
+            android:drawableLeft="@drawable/ic_home"
+            android:drawablePadding="10dp"
+            style="@style/NavMenuButtonPronofoot"
+            />
+
+    <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="@color/vert_sep_color"
+            />
+
+    <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/espace_prono"
+            android:text="@string/espace_pronostique"
+            android:drawableLeft="@drawable/ic_espace_prono"
+            android:drawablePadding="10dp"
+            style="@style/NavMenuButtonPronofoot"
+            />
+
+    <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="@color/vert_sep_color"
+            />
+
+
+    <TextView
+        android:id="@+id/version"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        style="@style/NavMenuButton"
+        android:gravity="bottom"
+        android:layout_marginLeft="5dp"
+        android:layout_marginBottom="5dp"
+        android:textSize="9sp"
+        />
+
+
+</LinearLayout>

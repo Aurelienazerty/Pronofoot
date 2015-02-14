@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Generated with http://android-holo-colors.com -->
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <style name="Pronofoot" parent="@style/_Pronofoot"/>
+
+  <style name="_Pronofoot" parent="android:Theme.Holo.Light">
+
+    <item name="android:editTextStyle">@style/EditTextPronofoot</item>
+
+    <item name="android:textColorHighlight">#9933b5e5</item>
+
+    <item name="android:autoCompleteTextViewStyle">@style/AutoCompleteTextViewPronofoot</item>
+
+    <item name="android:checkboxStyle">@style/CheckBoxPronofoot</item>
+
+    <item name="android:radioButtonStyle">@style/RadioButtonPronofoot</item>
+
+    <item name="android:buttonStyle">@style/ButtonPronofoot</item>
+
+    <item name="android:imageButtonStyle">@style/ImageButtonPronofoot</item>
+
+    <item name="android:spinnerStyle">@style/SpinnerPronofoot</item>
+
+    <item name="android:spinnerDropDownItemStyle">@style/SpinnerDropDownItemPronofoot</item>
+
+    <item name="android:progressBarStyleHorizontal">@style/ProgressBarPronofoot</item>
+
+    <item name="android:seekBarStyle">@style/SeekBarPronofoot</item>
+
+    <item name="android:ratingBarStyle">@style/RatingBarPronofoot</item>
+
+    <item name="android:ratingBarStyleIndicator">@style/RatingBarBigPronofoot</item>
+
+    <item name="android:ratingBarStyleSmall">@style/RatingBarSmallPronofoot</item>
+
+    <item name="android:buttonStyleToggle">@style/TogglePronofoot</item>
+
+    <item name="android:listViewStyle">@style/ListViewPronofoot</item>
+
+    <item name="android:listViewWhiteStyle">@style/ListViewPronofoot.White</item>
+
+    <item name="android:spinnerItemStyle">@style/SpinnerItemPronofoot</item>
+
+  </style>
+
+</resources>

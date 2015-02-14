@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/MainConteneur" >
+
+    <TextView
+        android:id="@+id/profil_username"
+        android:text="@string/username"
+        style="@style/TextBig"
+    />
+
+    <Switch
+        android:text="@string/label_notification"
+        android:id="@+id/switch_notif"
+        android:layout_below="@+id/profil_username"
+        android:checked="true"
+        style="@style/SwitchPronofoot"
+     />
+
+    <Switch
+        android:text="@string/label_information"
+        android:id="@+id/switch_info"
+        android:layout_below="@+id/switch_notif"
+        android:checked="true"
+        style="@style/SwitchPronofoot"
+    />
+    <Switch
+        android:text="@string/label_newsletter"
+        android:id="@+id/switch_newsletter"
+        android:layout_below="@+id/switch_info"
+        android:checked="true"
+        style="@style/SwitchPronofoot"
+    />
+
+    <Switch
+        android:text="@string/label_home_page"
+        android:id="@+id/switch_home"
+        android:layout_below="@+id/switch_newsletter"
+        android:checked="true"
+        style="@style/SwitchPronofoot"
+     />
+
+    <ProgressBar
+        android:id="@+id/profil_loading"
+        style="@style/ListSpinner"
+        android:layout_centerInParent="true" />
+
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:layout_below="@+id/switch_home"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="false"
+        android:gravity="center_horizontal">
+
+        <Button
+            android:id="@+id/b_save_profil"
+            style="@style/BouttonPronofoot"
+            android:background="@drawable/button_background_states"
+            android:text="@string/label_save_profil"
+            android:onClick="saveProfil"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+        />
+
+        <Button
+            android:id="@+id/b_more_profil"
+            style="@style/BouttonPronofoot"
+            android:text="@string/label_more_profil"
+            android:onClick="moreProfil"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+        />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/version"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="V 1.1.6"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>

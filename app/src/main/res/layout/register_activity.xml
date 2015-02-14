@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_background"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="10dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingTop="5dp" >
+
+            <TextView
+                android:id="@+id/register_lbl_username"
+                style="@style/Label"
+                android:text="@string/label_username" />
+
+            <EditText
+                android:id="@+id/register_username"
+                style="@style/SignInEditText"
+                android:imeOptions="actionNext"
+                android:inputType="textVisiblePassword|textNoSuggestions"
+                android:nextFocusDown="@+id/register_mail" />
+
+            <TextView
+                android:id="@+id/register_lbl_mail"
+                style="@style/Label"
+                android:text="@string/label_mail" />
+
+            <AutoCompleteTextView
+                android:id="@+id/register_mail"
+                style="@style/SignInEditText"
+                android:completionThreshold="1"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress"
+                android:nextFocusDown="@+id/register_password" />
+
+            <TextView
+                android:id="@+id/register_lbl_password"
+                style="@style/Label"
+                android:text="@string/label_password_register" />
+
+            <EditText
+                android:id="@+id/register_password"
+                style="@style/SignInEditText"
+                android:inputType="textPassword"
+                android:nextFocusDown="@+id/register_password2"
+                android:password="true" />
+
+
+            <ProgressBar
+                android:id="@+id/register_loading"
+                style="@style/ListSpinner"
+                android:layout_gravity="center_horizontal" />
+            <Button
+                android:id="@+id/b_register"
+                style="@style/BouttonPronofoot"
+                android:gravity="center"
+                android:onClick="doRegistration"
+                android:text="@string/label_sign_up" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
