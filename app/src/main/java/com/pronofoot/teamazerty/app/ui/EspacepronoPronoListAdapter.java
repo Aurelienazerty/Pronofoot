@@ -63,6 +63,11 @@ public class EspacepronoPronoListAdapter extends AlternatingColorListAdapter<Mat
             this.view(2).setVisibility(View.VISIBLE);
         }
 
+        //Init
+        this.view(1).setBackgroundResource(0);
+        this.view(2).setBackgroundResource(0);
+        this.view(3).setBackgroundResource(0);
+
         //Désactivation lorsque le match a commencé
         if (item.getDate().before(maintenant)) {
             this.view(1).setClickable(false);

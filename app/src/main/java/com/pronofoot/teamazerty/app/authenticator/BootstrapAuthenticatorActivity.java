@@ -15,6 +15,7 @@ import android.text.Editable;
 import android.text.Html;
 import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnKeyListener;
@@ -304,7 +305,7 @@ public class BootstrapAuthenticatorActivity extends SherlockAccountAuthenticator
                     editor.putString(Constants.Pref.PREF_USER_ID, "");
                     editor.commit();
                 }
-
+                //Log.i("TA", "res = " + res);
                 return res;
             }
 
@@ -326,6 +327,7 @@ public class BootstrapAuthenticatorActivity extends SherlockAccountAuthenticator
 
             @Override
             public void onSuccess(Boolean authSuccess) {
+                //Log.i("TA", "authSuccess = " + authSuccess);
                 onAuthenticationResult(authSuccess);
             }
 
@@ -365,7 +367,6 @@ public class BootstrapAuthenticatorActivity extends SherlockAccountAuthenticator
      */
 
     protected void finishLogin() {
-        //Log.i("TA", "finishLogin");
         final Account account = new Account(username, Constants.Auth.BOOTSTRAP_ACCOUNT_TYPE);
 
         if (requestNewAccount) {
@@ -378,8 +379,10 @@ public class BootstrapAuthenticatorActivity extends SherlockAccountAuthenticator
         intent.putExtra(KEY_ACCOUNT_NAME, username);
         intent.putExtra(KEY_ACCOUNT_TYPE, Constants.Auth.BOOTSTRAP_ACCOUNT_TYPE);
         if (authTokenType != null
-                && authTokenType.equals(Constants.Auth.AUTHTOKEN_TYPE))
+                && authTokenType.equals(Constants.Auth.AUTHTOKEN_TYPE)) {
             intent.putExtra(KEY_AUTHTOKEN, authToken);
+        }
+        //Log.i("TA", "authToken = " + authToken);
         setAccountAuthenticatorResult(intent.getExtras());
         setResult(RESULT_OK, intent);
         finish();
@@ -421,12 +424,13 @@ public class BootstrapAuthenticatorActivity extends SherlockAccountAuthenticator
      * @param result
      */
     public void onAuthenticationResult(boolean result) {
-        if (result)
-            if (!confirmCredentials)
+        if (result) {
+            if (!confirmCredentials) {
                 finishLogin();
-            else
+            } else {
                 finishConfirmCredentials(true);
-        else {
+            }
+        } else {
             Ln.d("onAuthenticationResult: failed to authenticate");
             if (requestNewAccount)
                 Toaster.showLong(BootstrapAuthenticatorActivity.this,

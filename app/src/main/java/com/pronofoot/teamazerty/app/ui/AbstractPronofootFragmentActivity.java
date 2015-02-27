@@ -6,6 +6,7 @@ import android.accounts.OperationCanceledException;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.View;
 
 import com.actionbarsherlock.view.Window;
@@ -76,8 +77,8 @@ abstract class AbstractPronofootFragmentActivity extends PronofootFragmentActivi
 
             @Override
             public Boolean call() throws Exception {
-                    final BootstrapService svc = serviceProvider.getService(AbstractPronofootFragmentActivity.this);
-                    return svc != null;
+                final BootstrapService svc = serviceProvider.getService(AbstractPronofootFragmentActivity.this);
+                return svc != null;
 
             }
 
@@ -103,7 +104,7 @@ abstract class AbstractPronofootFragmentActivity extends PronofootFragmentActivi
     @Override
     public void setContentView(int layoutResId) {
         super.setContentView(layoutResId);
-
+        Log.i("TA", "layoutResId = " + layoutResId);
         Views.inject(this);
     }
 

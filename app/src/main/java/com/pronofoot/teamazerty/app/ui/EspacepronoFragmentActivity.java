@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.text.Html;
+import android.util.Log;
 import android.view.View;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -75,7 +76,7 @@ public class EspacepronoFragmentActivity extends AbstractPronofootFragmentActivi
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
+        Log.i("TA", "onCreate");
         requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 
         super.onCreate(savedInstanceState);
@@ -153,6 +154,11 @@ public class EspacepronoFragmentActivity extends AbstractPronofootFragmentActivi
     private void navigateToResultat() {
         final Intent i = new Intent(this, CarouselActivity.class);
         i.putExtra(Constants.Indent.LUNCHED, true);
+        i.putExtra(Constants.Indent.GRILLE_RESULTAT, -1);
+        i.putExtra(Constants.Indent.GRILLE_PRONO, -1);
+        i.putExtra(Constants.Indent.FIRST_GRILLE_PRONO, -1);
+        i.putExtra(Constants.Indent.LAST_GRILLE_RESULTAT, -1);
+        i.putExtra(Constants.Indent.PAGE, getIntent().getIntExtra(Constants.Indent.PAGE, PAGE_PRONO));
         startActivity(i);
     }
 

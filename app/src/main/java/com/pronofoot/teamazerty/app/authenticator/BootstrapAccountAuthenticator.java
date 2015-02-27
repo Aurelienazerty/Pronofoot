@@ -37,7 +37,7 @@ class BootstrapAccountAuthenticator extends AbstractAccountAuthenticator {
      */
     @Override
     public Bundle addAccount(AccountAuthenticatorResponse response, String accountType, String authTokenType,
-            String[] requiredFeatures, Bundle options) throws NetworkErrorException {
+        String[] requiredFeatures, Bundle options) throws NetworkErrorException {
         final Intent intent = new Intent(context, BootstrapAuthenticatorActivity.class);
         intent.putExtra(Constants.Param.PARAM_AUTHTOKEN_TYPE, authTokenType);
         intent.putExtra(KEY_ACCOUNT_AUTHENTICATOR_RESPONSE, response);

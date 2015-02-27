@@ -5,10 +5,10 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:1.0.0'
+        classpath 'com.android.tools.build:gradle:1.1.0'
     }
 }
-apply plugin: 'android'
+apply plugin: 'com.android.application'
 
 repositories {
     maven { url 'https://github.com/donnfelker/mvn-repo/raw/master/' }
@@ -17,10 +17,10 @@ repositories {
 }
 
 dependencies {
-    //compile 'com.android.support:appcompat-v7:21.+'
-    compile 'com.google.android.gms:play-services:6.+'
+    compile 'com.android.support:support-v4:21.0.3'
+    compile 'com.google.android.gms:play-services:6.5.87'
 
-    compile 'com.google.code.gson:gson:2.2.4'
+    compile 'com.google.code.gson:gson:2.3'
     compile 'com.squareup.dagger:dagger:1.0.1'
     compile 'com.squareup.dagger:dagger-compiler:1.0.1'
     compile 'com.jakewharton:butterknife:1.3.2'
@@ -39,7 +39,7 @@ dependencies {
     //Notif
     compile 'com.google.android.gcm:gcm-client:1.0.2'
     //Pub
-    compile 'com.google.android.gms:play-services:6.+'
+    compile 'com.google.android.gms:play-services:6.5.87'
 
 
 
@@ -54,8 +54,8 @@ android {
     defaultConfig {
         minSdkVersion 9
         targetSdkVersion 21
-        versionCode 24
-        versionName '1.6.0'
+        versionCode 25
+        versionName '1.6.1'
     }
     packagingOptions {
         // Exclude file to avoid
