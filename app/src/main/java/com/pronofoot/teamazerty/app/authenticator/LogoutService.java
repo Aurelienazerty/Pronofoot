@@ -5,6 +5,7 @@ import android.accounts.AccountManager;
 import android.accounts.AccountManagerFuture;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 import com.google.android.gcm.GCMRegistrar;
 import com.pronofoot.teamazerty.app.core.Constants;
@@ -71,7 +72,6 @@ public class LogoutService {
 
         @Override
         public Boolean call() throws Exception {
-
             final Account[] accounts = AccountManager.get(context).getAccountsByType(Constants.Auth.BOOTSTRAP_ACCOUNT_TYPE);
             if(accounts.length > 0) {
                 AccountManagerFuture<Boolean> removeAccountFuture = AccountManager.get(context).removeAccount
@@ -94,12 +94,6 @@ public class LogoutService {
                 nameValuePairs.add(new BasicNameValuePair(Constants.Param.PARAM_GCM_REGID, regId));
                 httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
-                /*HttpResponse response = httpclient.execute(httppost);
-                HttpEntity entity = response.getEntity();
-                String dataRes = EntityUtils.toString(entity);
-
-                Log.i("TA: retour", dataRes);*/
-
                 //Supprimer les prefs
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.putString(Constants.Pref.PREF_LOGIN, "");
@@ -120,10 +114,8 @@ public class LogoutService {
         @Override
         protected void onSuccess(Boolean accountWasRemoved) throws Exception {
             super.onSuccess(accountWasRemoved);
-
             Ln.d("Logout succeeded: %s", accountWasRemoved);
             onSuccess.run();
-
         }
 
         @Override

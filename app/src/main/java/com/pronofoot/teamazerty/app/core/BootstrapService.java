@@ -307,12 +307,9 @@ public class BootstrapService {
             params.put(Constants.Param.PARAM_VERSION, "" + version);
             params.put(Constants.Param.PARAM_GCM_REGID, "" + regId);
 
-            //Log.i("TA", "Appel à :" + url);
-            //Log.i("TA", "Params : " + params);
             HttpRequest request = execute(HttpRequest.post(url, params, true));
 
             Grille res = fromJson(request, Grille.class);
-            //Log.i("TA", "Retour : " + res);
             return res;
         } catch (HttpRequestException e) {
             throw e.getCause();
@@ -348,7 +345,6 @@ public class BootstrapService {
             HttpRequest request = execute(HttpRequest.post(url, params, true));
             CompetitionSelector retour = fromJson(request, CompetitionSelector.class);
             if (futures == true) {
-                //Log.i("TA", "Grilles WebService : " + retour.toString());
             }
             return retour;
         } catch (HttpRequestException e) {
@@ -378,7 +374,6 @@ public class BootstrapService {
             final String user_lang = Locale.getDefault().getLanguage();
             params.put(Constants.Param.PARAM_USERLANG, user_lang);
             params.put(Constants.Param.PARAM_USER_ID, user_id + "");
-            //Log.i("TA", "getStatUser: " + url);
             HttpRequest request = execute(HttpRequest.post(url, params, true));
             StatUser retour = fromJson(request, StatUser.class);
             return retour;

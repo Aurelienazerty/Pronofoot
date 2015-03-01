@@ -8,7 +8,8 @@ buildscript {
         classpath 'com.android.tools.build:gradle:1.1.0'
     }
 }
-apply plugin: 'com.android.application'
+
+apply plugin: 'android'
 
 repositories {
     maven { url 'https://github.com/donnfelker/mvn-repo/raw/master/' }
@@ -18,6 +19,7 @@ repositories {
 
 dependencies {
     compile 'com.android.support:support-v4:21.0.3'
+    //compile 'com.android.support:support-v13:20.0.0'
     compile 'com.google.android.gms:play-services:6.5.87'
 
     compile 'com.google.code.gson:gson:2.3'
@@ -32,7 +34,7 @@ dependencies {
     compile 'com.nineoldandroids:library:2.4.0'
     compile 'com.github.kevinsawicki:android-pusher:0.6'
     compile 'com.github.kevinsawicki:wishlist:0.9'
-    compile 'com.squareup:otto:1.3.4'
+    compile 'com.squareup:otto:1.3.5'
 
     compile 'com.squareup.retrofit:retrofit:1.5.1'
 
@@ -50,7 +52,7 @@ dependencies {
 
 android {
     compileSdkVersion 19
-    buildToolsVersion '19.1.0'
+    buildToolsVersion '20.0.0'
     defaultConfig {
         minSdkVersion 9
         targetSdkVersion 21
@@ -61,6 +63,7 @@ android {
         // Exclude file to avoid
         // Error: Duplicate files during packaging of APK
         exclude 'META-INF/services/javax.annotation.processing.Processor'
+        exclude 'LICENSE.txt'
     }
     // signingConfigs {
     // release {

@@ -98,8 +98,6 @@ public class StatUserListFragment extends ItemListFragment<Stat> {
                     if(a != null) {
                         Intent i = a.getIntent();
                         user_id = i.getIntExtra(Constants.Extra.USER, 5);
-                        //Log.i("TA", "serviceProvider : " + serviceProvider);
-                        //Log.i("TA", "getService : " + serviceProvider.getService(a));
                         response = serviceProvider.getService(a).getStatUser(user_id);
                         saison = response.getSaison();
                         username = response.getUsername();

@@ -104,7 +104,6 @@ public class ProfilActivity extends AbstractPronofootActivity {
             // Get GCM registration id
             regId = GCMRegistrar.getRegistrationId(context);
         } catch (Exception e) {
-            //Log.i("TA", "Erreur : " + e.getMessage());
             regId = Constants.Extra.VIELLE_VERSION;
         }
         showProgress();
@@ -161,7 +160,6 @@ public class ProfilActivity extends AbstractPronofootActivity {
                     HttpResponse response = httpclient.execute(httppost);
                     HttpEntity entity = response.getEntity();
                     String dataRes = EntityUtils.toString(entity);
-                    //Log.i("TA", "Res: " + dataRes);
                     JSONObject jsonResponse = new JSONObject(dataRes);
                     val_username = jsonResponse.getString(Constants.Param.PARAM_USERNAME);
                     val_notif = jsonResponse.getString(Constants.Param.PARAM_NOTIF).equalsIgnoreCase("y");
@@ -170,7 +168,6 @@ public class ProfilActivity extends AbstractPronofootActivity {
 
                     val_homePage = preferences.getString(Constants.Param.PARAM_HOME_PAGE_IS_RESULT, "n").equalsIgnoreCase("y");
                 } catch (IOException e) {
-                    //Log.i("TA", "Erreur chargerProfile : " + e.getMessage());
                     if (edit) {
                         Toaster.showLong(ProfilActivity.this, R.string.error_loading_profil);
                     } else {

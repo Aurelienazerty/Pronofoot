@@ -73,7 +73,6 @@ public class EspacepronoPronoListFragment extends AsbstactGrilleResultatListFrag
                         Intent i = a.getIntent();
                         int grille_id = i.getIntExtra(Constants.Indent.GRILLE_PRONO, -1);
                         int compet_id = i.getIntExtra(Constants.Indent.COMPET_ID, -1);
-                        //Log.i("TA", "dans fragment Grille compet_id = " + compet_id);
                         //this.getContext().getString();
                         response = serviceProvider.getService(getActivity()).getGrilleForUser(user_id, username, password, grille_id, compet_id, regId, version);
                         nomGrille = response.getNom();

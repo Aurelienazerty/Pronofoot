@@ -86,7 +86,6 @@ public class EspacepronoResultatListFragment extends AsbstactGrilleResultatListF
                         Intent i = a.getIntent();
                         int grille_id = i.getIntExtra(Constants.Indent.GRILLE_RESULTAT, -1);
                         int compet_id = i.getIntExtra(Constants.Indent.COMPET_ID, -1);
-                        //Log.i("TA", "dans fragment Grille compet_id = " + compet_id);
                         //Dans le cas où on passe un user_id particulier
                         int user = i.getIntExtra(Constants.Indent.USER_ID, -1);
                         if (user != -1) {

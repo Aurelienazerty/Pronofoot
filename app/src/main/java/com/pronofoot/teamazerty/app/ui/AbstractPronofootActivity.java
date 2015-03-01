@@ -35,7 +35,6 @@ public abstract class AbstractPronofootActivity extends SherlockActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        //Log.i("TA", "onOptionsItemSelected");
         switch (item.getItemId()) {
             case android.R.id.home:  // This is the home button in the top left corner of the screen.
                 // Dont call finish! Because activity could have been started by an outside activity and the home button would not operated as expected!

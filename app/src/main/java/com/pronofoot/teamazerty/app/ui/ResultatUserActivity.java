@@ -75,7 +75,6 @@ public class ResultatUserActivity extends PronofootFragmentActivity {
 
                     res = true;
                 } catch (IOException e) {
-                    //Log.i("TA", "Erreur chargerListeGrille : " + e.getMessage());
                     Toaster.showLong(ResultatUserActivity.this, R.string.error_loading_list_grille);
                 }
 
@@ -110,12 +109,10 @@ public class ResultatUserActivity extends PronofootFragmentActivity {
     }
 
     public void addFragment(AsbstactGrilleResultatListFragment f) {
-        //Log.i("TA", "ResultatUserActivity:addFragment");
         if (fragments == null) {
             fragments = new ArrayList<AsbstactGrilleResultatListFragment<Match>>();
         }
         fragments.add(f);
-        //Log.i("TA", "size après: " + fragments.size());
         //f.forceRefresh();
     }
 
@@ -126,10 +123,7 @@ public class ResultatUserActivity extends PronofootFragmentActivity {
         getIntent().putExtra(Constants.Indent.COMPET_ID, getIntent().getIntExtra(Constants.Indent.COMPET_ID, -1));
         for (AsbstactGrilleResultatListFragment f : fragments) {
             f.forceRefresh();
-            //Log.i("TA", "ResultatUserActivity:fragments" + fragments);
         }
-        //Log.i("TA", "ResultatUserActivity:restartActivity");
-        //Log.i("TA", "size: " + fragments.size());
     }
 
     public void nextGrilleResultat(View button) {

@@ -120,6 +120,15 @@ public class BootstrapAuthenticatorActivity extends SherlockAccountAuthenticator
 
     @Override
     public void onCreate(Bundle bundle) {
+        SharedPreferences preferences = getSharedPreferences(Constants.Pref.PREF_NAME, 0);
+        String user_id = preferences.getString(Constants.Pref.PREF_USER_ID, "");
+        String username = preferences.getString(Constants.Pref.PREF_LOGIN, "");
+        String password = preferences.getString(Constants.Pref.PREF_PASSWORD, "");
+        if (!username.isEmpty() && !user_id.isEmpty() && !password.isEmpty()) {
+            Intent i = getBaseContext().getPackageManager().getLaunchIntentForPackage(getBaseContext().getPackageName());
+            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(i);
+        }
         super.onCreate(bundle);
 
         accountManager = AccountManager.get(this);
@@ -131,7 +140,6 @@ public class BootstrapAuthenticatorActivity extends SherlockAccountAuthenticator
                 false);
 
         setContentView(R.layout.login_activity);
-
         Views.inject(this);
 
         /*usernameText.setAdapter(new ArrayAdapter<String>(this,
@@ -234,7 +242,6 @@ public class BootstrapAuthenticatorActivity extends SherlockAccountAuthenticator
      * @param view
      */
     public void handleLogin(View view) {
-        //Log.i("TA", "handleLogin");
         if (authenticationTask != null) {
             return;
         }
@@ -305,7 +312,6 @@ public class BootstrapAuthenticatorActivity extends SherlockAccountAuthenticator
                     editor.putString(Constants.Pref.PREF_USER_ID, "");
                     editor.commit();
                 }
-                //Log.i("TA", "res = " + res);
                 return res;
             }
 
@@ -327,7 +333,6 @@ public class BootstrapAuthenticatorActivity extends SherlockAccountAuthenticator
 
             @Override
             public void onSuccess(Boolean authSuccess) {
-                //Log.i("TA", "authSuccess = " + authSuccess);
                 onAuthenticationResult(authSuccess);
             }
 
@@ -348,7 +353,6 @@ public class BootstrapAuthenticatorActivity extends SherlockAccountAuthenticator
      * @param result
      */
     protected void finishConfirmCredentials(boolean result) {
-        //Log.i("TA", "finishConfirmCredentials");
         final Account account = new Account(username, Constants.Auth.BOOTSTRAP_ACCOUNT_TYPE);
         accountManager.setPassword(account, password);
 
@@ -382,7 +386,6 @@ public class BootstrapAuthenticatorActivity extends SherlockAccountAuthenticator
                 && authTokenType.equals(Constants.Auth.AUTHTOKEN_TYPE)) {
             intent.putExtra(KEY_AUTHTOKEN, authToken);
         }
-        //Log.i("TA", "authToken = " + authToken);
         setAccountAuthenticatorResult(intent.getExtras());
         setResult(RESULT_OK, intent);
         finish();

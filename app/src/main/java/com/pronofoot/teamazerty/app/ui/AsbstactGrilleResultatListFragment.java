@@ -67,7 +67,6 @@ abstract class AsbstactGrilleResultatListFragment<Match> extends ItemListFragmen
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
-        //Log.i("TA", "tag : " + this.getTag());
 
         //Pour le push
         try {
@@ -80,7 +79,6 @@ abstract class AsbstactGrilleResultatListFragment<Match> extends ItemListFragmen
             // Get GCM registration id
             regId = GCMRegistrar.getRegistrationId(context);
         } catch (Exception e) {
-            //Log.i("TA", "Erreur : " + e.getMessage());
             regId = Constants.Extra.VIELLE_VERSION;
         }
         Injector.inject(this);

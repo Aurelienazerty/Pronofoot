@@ -54,7 +54,6 @@ public class EspacepronoPronoListAdapter extends AlternatingColorListAdapter<Mat
         setText(6, item.getEquipeLocale().getEquipe_id() + "");
         setText(7, item.getEquipeVisiteur().getEquipe_id() + "");
         //Les résultats
-        //Log.i("TA", "this.view(9)" + this.view(9).getClass());
         RadioGroup rg = this.view(9);
         rg.clearCheck();
         if (!item.isMatchNuls()) {

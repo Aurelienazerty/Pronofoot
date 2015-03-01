@@ -33,7 +33,6 @@ public class GCMIntentService extends GCMBaseIntentService {
      **/
     @Override
     protected void onRegistered(Context context, String registrationId) {
-        //Log.i("TA", "Device registered: regId = " + registrationId);
     }
 
     /**

@@ -3,6 +3,7 @@ package com.pronofoot.teamazerty.app;
 import android.accounts.AccountManager;
 import android.content.Context;
 
+import com.pronofoot.teamazerty.app.authenticator.ApiKeyProvider;
 import com.pronofoot.teamazerty.app.authenticator.BootstrapAuthenticatorActivity;
 import com.pronofoot.teamazerty.app.authenticator.LogoutService;
 import com.pronofoot.teamazerty.app.ui.AdFragment;

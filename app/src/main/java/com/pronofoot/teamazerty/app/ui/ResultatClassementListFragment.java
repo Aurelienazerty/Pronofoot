@@ -78,7 +78,6 @@ public class ResultatClassementListFragment extends ItemListFragment<Resultat> {
     @Override
     public Loader<List<Resultat>> onCreateLoader(final int id, final Bundle args) {
         final List<Resultat> initialItems = items;
-        //Log.i("TA", "onCreateLoader");
         ThrowableLoader<List<Resultat>> res;
         try {
 
@@ -130,7 +129,6 @@ public class ResultatClassementListFragment extends ItemListFragment<Resultat> {
 
     @Override
     protected int getErrorMessage(Exception exception) {
-        //Log.i("TA", "getErrorMessage : " + exception.getMessage());
         //exception.printStackTrace();
         return R.string.error_loading_classement;
     }

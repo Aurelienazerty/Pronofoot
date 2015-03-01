@@ -76,7 +76,6 @@ public class EspacepronoFragmentActivity extends AbstractPronofootFragmentActivi
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.i("TA", "onCreate");
         requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 
         super.onCreate(savedInstanceState);
@@ -271,7 +270,6 @@ public class EspacepronoFragmentActivity extends AbstractPronofootFragmentActivi
             @Override
             public void onSuccess(Boolean t) {
                 hideProgress();
-                //Log.i("TA", "onFinally");
                 pronosticTask = null;
                 restartActivity();
             }
@@ -414,7 +412,6 @@ public class EspacepronoFragmentActivity extends AbstractPronofootFragmentActivi
 
                     res = true;
                 } catch (IOException e) {
-                    //Log.i("TA", "Erreur chargerListeGrille : " + e.getMessage());
                     Toaster.showLong(EspacepronoFragmentActivity.this, R.string.error_loading_list_grille);
                 }
 

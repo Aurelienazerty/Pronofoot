@@ -104,7 +104,6 @@ abstract class AbstractPronofootFragmentActivity extends PronofootFragmentActivi
     @Override
     public void setContentView(int layoutResId) {
         super.setContentView(layoutResId);
-        Log.i("TA", "layoutResId = " + layoutResId);
         Views.inject(this);
     }
 
