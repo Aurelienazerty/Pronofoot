@@ -54,7 +54,7 @@ public class GCMIntentService extends GCMBaseIntentService {
         String typeNotif = intent.getExtras().getString(Constants.Push.PARAM_TYPE, Constants.Push.TypePush.TYPE_GRILLE);
         if (typeNotif.equalsIgnoreCase(Constants.Push.TypePush.TYPE_GRILLE)) {
             String grille = intent.getExtras().getString(Constants.Push.PARAM_GRILLE_NOM);
-            int grille_id = (new Integer(intent.getExtras().getString(Constants.Push.PARAM_GRILLE_ID))).intValue();
+            int grille_id = Integer.valueOf(intent.getExtras().getString(Constants.Push.PARAM_GRILLE_ID));
             displayMessage(context, message);
             generateNotificationGrille(context, message, grille, grille_id);
         } else if (typeNotif.equalsIgnoreCase(Constants.Push.TypePush.TYPE_URL)) {
@@ -99,7 +99,7 @@ public class GCMIntentService extends GCMBaseIntentService {
                 .addAction(R.drawable.ic_action_settings, context.getResources().getString(R.string.page_profile), pendingProfilIntent)
                 .setStyle(new Notification.BigTextStyle()
                 .bigText(message));
-        } catch (Exception e) {}
+        } catch (Exception ignored) {}
 
         if (!url.isEmpty()) {
             Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
@@ -129,6 +129,7 @@ public class GCMIntentService extends GCMBaseIntentService {
 
         //On va sur l'espace prono
         Intent grilleIntent = new Intent(context, EspacepronoFragmentActivity.class);
+        grilleIntent.putExtra(Constants.Indent.LUNCHED, true);
         grilleIntent.putExtra(Constants.Indent.GRILLE_PRONO, grilleId);
         grilleIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |
                 Intent.FLAG_ACTIVITY_SINGLE_TOP);

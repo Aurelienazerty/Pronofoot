@@ -2,6 +2,7 @@ package com.pronofoot.teamazerty.app.ui;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -121,12 +122,19 @@ public class RegisterActivity extends AbstractPronofootActivity {
         final String password = txtPassword.getText().toString();
         final String email = txtEmail.getText().toString();
         final String user_lang = Locale.getDefault().getLanguage();
+        String versionName;
+        try {
+            versionName = getApplicationContext().getPackageManager().getPackageInfo(getApplicationContext().getPackageName(), 0).versionName;
+        } catch (PackageManager.NameNotFoundException e) {
+            versionName = "NA";
+        }
         if (isValid()) {
             showProgress();
+            final String finalVersionName = versionName;
             registerTask = new SafeAsyncTask<Boolean>() {
 
                 public Boolean call() throws Exception {
-                    Boolean res = false;
+                    Boolean res;
 
                     HttpClient httpclient = new DefaultHttpClient();
                     HttpPost httppost = new HttpPost(URL_REGISTER);
@@ -136,6 +144,7 @@ public class RegisterActivity extends AbstractPronofootActivity {
                     nameValuePairs.add(new BasicNameValuePair(Constants.Param.PARAM_PASSWORD, password));
                     nameValuePairs.add(new BasicNameValuePair(Constants.Param.PARAM_USERMAIL, email));
                     nameValuePairs.add(new BasicNameValuePair(Constants.Param.PARAM_USERLANG, user_lang));
+                    nameValuePairs.add(new BasicNameValuePair(Constants.Param.PARAM_ANDROID, finalVersionName));
                     httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
                     HttpResponse response = httpclient.execute(httppost);
@@ -230,17 +239,14 @@ public class RegisterActivity extends AbstractPronofootActivity {
     private boolean isValid() {
         //Champs remplis
         final boolean populated =
-            populated(txtEmail) &&
-            populated(txtPassword) &&
-            //populated(txtPassword2) &&
-            populated(txtUsername);
+                populated(txtEmail) &&
+                        populated(txtPassword) &&
+                        //populated(txtPassword2) &&
+                        populated(txtUsername);
 
-        if (!populated) {
-            //ça ne sert à rien d'aller plus loins
-            return false;
-        }
+        //ça ne sert à rien d'aller plus loins
+        return populated && passwordStrong();
 
-        return /*passwordMatch() &&*/ passwordStrong();
     }
 
     /*private boolean passwordMatch() {

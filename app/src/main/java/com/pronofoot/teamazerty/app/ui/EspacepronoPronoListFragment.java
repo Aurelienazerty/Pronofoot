@@ -2,6 +2,7 @@ package com.pronofoot.teamazerty.app.ui;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v4.content.Loader;
 import android.view.View;
@@ -31,7 +32,7 @@ public class EspacepronoPronoListFragment extends AsbstactGrilleResultatListFrag
         getListAdapter()
                 .addHeader(header);
 
-        footer = getActivity().getLayoutInflater()
+        footer = activity.getLayoutInflater()
                 .inflate(R.layout.espaceprono_prono_footer, null);
         getListAdapter()
                 .addFooter(footer);
@@ -74,7 +75,13 @@ public class EspacepronoPronoListFragment extends AsbstactGrilleResultatListFrag
                         int grille_id = i.getIntExtra(Constants.Indent.GRILLE_PRONO, -1);
                         int compet_id = i.getIntExtra(Constants.Indent.COMPET_ID, -1);
                         //this.getContext().getString();
-                        response = serviceProvider.getService(getActivity()).getGrilleForUser(user_id, username, password, grille_id, compet_id, regId, version);
+                        String versionName;
+                        try {
+                            versionName = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0).versionName;
+                        } catch (PackageManager.NameNotFoundException e) {
+                            versionName = "NA";
+                        }
+                        response = serviceProvider.getService(getActivity()).getGrilleForUser(user_id, username, password, grille_id, compet_id, regId, version, versionName);
                         nomGrille = response.getNom();
                         id_grille = response.getGrille_id();
                         firstProno = a.getIntent().getIntExtra(Constants.Indent.FIRST_GRILLE_PRONO, -1);

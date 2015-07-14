@@ -92,7 +92,7 @@ public class ResultatGrilleListFragment extends ItemListFragment<Resultat> {
                         response = serviceProvider.getService(getActivity()).getResultatGrille();
                         nomGrille = response.getNom();
                         //header.get
-                        if (response != null && response.resultats != null) {
+                        if ((response != null) && (response.resultats != null)) {
                             return response.resultats;
                         }
                         return Collections.emptyList();

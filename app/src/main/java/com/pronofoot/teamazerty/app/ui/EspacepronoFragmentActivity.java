@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.text.Html;
-import android.util.Log;
 import android.view.View;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -34,13 +33,11 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 import butterknife.InjectView;
 import butterknife.Views;
@@ -197,7 +194,7 @@ public class EspacepronoFragmentActivity extends AbstractPronofootFragmentActivi
             //Log.i("TA","pronosticTask != null");
             return;
         }
-        this.button_pronostique = button;
+        button_pronostique = button;
 
         //showProgress();
 
@@ -206,17 +203,7 @@ public class EspacepronoFragmentActivity extends AbstractPronofootFragmentActivi
 
                 Boolean res = false;
 
-                SharedPreferences preferences = getSharedPreferences(Constants.Pref.PREF_NAME, 0);
-                String user_id = preferences.getString(Constants.Pref.PREF_USER_ID, "-1");
-                String username = preferences.getString(Constants.Pref.PREF_LOGIN, "-1");
-                String password = preferences.getString(Constants.Pref.PREF_PASSWORD, "-1");
-                List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
-                final String user_lang = Locale.getDefault().getLanguage();
-                nameValuePairs.add(new BasicNameValuePair(Constants.Param.PARAM_USERLANG, user_lang));
-                nameValuePairs.add(new BasicNameValuePair(Constants.Param.PARAM_USER_ID, user_id));
-                nameValuePairs.add(new BasicNameValuePair(Constants.Param.PARAM_USERNAME, username));
-                nameValuePairs.add(new BasicNameValuePair(Constants.Param.PARAM_USERMAIL, username));
-                nameValuePairs.add(new BasicNameValuePair(Constants.Param.PARAM_PASSWORD, password));
+                List<NameValuePair> nameValuePairs = preparePost();
 
                 //Récupérer les valeurs et construire le POST
                 String id_grille = ((TextView)button_pronostique.getRootView().findViewById(R.id.grille_id_grille)).getText().toString();
@@ -237,11 +224,8 @@ public class EspacepronoFragmentActivity extends AbstractPronofootFragmentActivi
                     JSONObject jsonResponse = new JSONObject(dataRes);
                     res = jsonResponse.getBoolean("ok");
                     if (res) {
-                        JSONArray j = jsonResponse.getJSONArray("retour");
+                        //JSONArray j = jsonResponse.getJSONArray("retour");
                         String retour = getResources().getString(R.string.msg_prono_save);
-                        /*for (int i = 0; i < j.length(); i++) {
-                            retour += "\n" + j.getJSONObject(i).getString("libelle");
-                        }*/
                         Toaster.showShort(EspacepronoFragmentActivity.this, Html.fromHtml(retour).toString());
                     }
                 } catch (IOException e) {
@@ -383,7 +367,6 @@ public class EspacepronoFragmentActivity extends AbstractPronofootFragmentActivi
     private void chargerListeGrille() {
         grilleProno = new ArrayList<Grille>();
         grilleResultat = new ArrayList<Grille>();
-        final SharedPreferences preferences = EspacepronoPronoListFragment.getSharedPreferences(this);
 
         grilleTask = new SafeAsyncTask<Boolean>() {
             public Boolean call() throws Exception {

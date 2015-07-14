@@ -54,7 +54,6 @@ public class ResultatUserActivity extends PronofootFragmentActivity {
 
     private void chargerListeGrille() {
         grilleResultat = new ArrayList<Grille>();
-        final SharedPreferences preferences = EspacepronoPronoListFragment.getSharedPreferences(this);
 
         grilleTask = new SafeAsyncTask<Boolean>() {
             public Boolean call() throws Exception {

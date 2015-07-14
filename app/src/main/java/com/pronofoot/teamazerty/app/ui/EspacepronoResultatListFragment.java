@@ -2,6 +2,7 @@ package com.pronofoot.teamazerty.app.ui;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v4.content.Loader;
 import android.util.Log;
@@ -91,8 +92,14 @@ public class EspacepronoResultatListFragment extends AsbstactGrilleResultatListF
                         if (user != -1) {
                             user_id = "" + user;
                         }
+                        String versionName;
+                        try {
+                            versionName = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0).versionName;
+                        } catch (PackageManager.NameNotFoundException e) {
+                            versionName = "NA";
+                        }
 
-                        response = serviceProvider.getService(a).getGrille(user_id, username, password, grille_id, compet_id, regId, version);
+                        response = serviceProvider.getService(a).getGrille(user_id, username, password, grille_id, compet_id, regId, version, versionName);
                         nomGrille = response.getNom();
                         id_grille = response.getGrille_id();
                         lastResultat = a.getIntent().getIntExtra(Constants.Indent.LAST_GRILLE_RESULTAT, -1);

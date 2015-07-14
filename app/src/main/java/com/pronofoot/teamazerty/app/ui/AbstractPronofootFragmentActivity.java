@@ -23,6 +23,8 @@ import javax.inject.Inject;
 import butterknife.InjectView;
 import butterknife.Views;
 
+import static butterknife.Views.*;
+
 
 /**
  * Activity to view the carousel and view pager indicator with fragments.
@@ -54,7 +56,7 @@ abstract class AbstractPronofootFragmentActivity extends PronofootFragmentActivi
         menuDrawer.setSlideDrawable(R.drawable.ic_drawer);
         menuDrawer.setDrawerIndicatorEnabled(true);
 
-        Views.inject(this);
+        inject(this);
 
         checkAuth();
 
@@ -104,7 +106,7 @@ abstract class AbstractPronofootFragmentActivity extends PronofootFragmentActivi
     @Override
     public void setContentView(int layoutResId) {
         super.setContentView(layoutResId);
-        Views.inject(this);
+        inject(this);
     }
 
 

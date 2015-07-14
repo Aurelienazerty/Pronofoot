@@ -113,17 +113,8 @@ public class ProfilActivity extends AbstractPronofootActivity {
                 List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
                 try {
                     SharedPreferences preferences = getSharedPreferences(Constants.Pref.PREF_NAME, 0);
-                    String user_id = preferences.getString(Constants.Pref.PREF_USER_ID, "-1");
-                    String username = preferences.getString(Constants.Pref.PREF_LOGIN, "-1");
-                    String password = preferences.getString(Constants.Pref.PREF_PASSWORD, "-1");
 
-                    final String user_lang = Locale.getDefault().getLanguage();
-                    nameValuePairs.add(new BasicNameValuePair(Constants.Param.PARAM_USERLANG, user_lang));
-                    nameValuePairs.add(new BasicNameValuePair(Constants.Param.PARAM_USER_ID, user_id));
-                    nameValuePairs.add(new BasicNameValuePair(Constants.Param.PARAM_USERNAME, username));
-                    nameValuePairs.add(new BasicNameValuePair(Constants.Param.PARAM_PASSWORD, password));
-                    nameValuePairs.add(new BasicNameValuePair(Constants.Param.PARAM_GCM_REGID, regId));
-                    nameValuePairs.add(new BasicNameValuePair(Constants.Param.PARAM_VERSION, version));
+                    nameValuePairs = preparePost();
                     if (edit) {
                         String state;
                         if (notif.isChecked()) {
@@ -151,7 +142,7 @@ public class ProfilActivity extends AbstractPronofootActivity {
                         }
                         SharedPreferences.Editor editor = preferences.edit();
                         editor.putString(Constants.Param.PARAM_HOME_PAGE_IS_RESULT, state);
-                        editor.commit();
+                        editor.apply();
                     }
 
                     HttpClient httpclient = new DefaultHttpClient();
@@ -167,6 +158,8 @@ public class ProfilActivity extends AbstractPronofootActivity {
                     val_newsletter = jsonResponse.getString(Constants.Param.PARAM_NEWSLETTER).equalsIgnoreCase("y");
 
                     val_homePage = preferences.getString(Constants.Param.PARAM_HOME_PAGE_IS_RESULT, "n").equalsIgnoreCase("y");
+
+                    res = true;
                 } catch (IOException e) {
                     if (edit) {
                         Toaster.showLong(ProfilActivity.this, R.string.error_loading_profil);

@@ -5,7 +5,6 @@ import android.accounts.AccountManager;
 import android.accounts.AccountManagerFuture;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.util.Log;
 
 import com.google.android.gcm.GCMRegistrar;
 import com.pronofoot.teamazerty.app.core.Constants;
@@ -22,6 +21,7 @@ import org.apache.http.message.BasicNameValuePair;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.concurrent.atomic.AtomicReference;
 
 import javax.inject.Inject;
 
@@ -74,8 +74,9 @@ public class LogoutService {
         public Boolean call() throws Exception {
             final Account[] accounts = AccountManager.get(context).getAccountsByType(Constants.Auth.BOOTSTRAP_ACCOUNT_TYPE);
             if(accounts.length > 0) {
-                AccountManagerFuture<Boolean> removeAccountFuture = AccountManager.get(context).removeAccount
-                        (accounts[0], null, null);
+                AtomicReference<AccountManagerFuture<Boolean>> removeAccountFuture = new AtomicReference<AccountManagerFuture<Boolean>>();
+                removeAccountFuture.set(AccountManager.get(context).removeAccount
+                        (accounts[0], null, null));
 
 
                 SharedPreferences preferences = context.getSharedPreferences(Constants.Pref.PREF_NAME, 0);
@@ -83,7 +84,6 @@ public class LogoutService {
                 //Envoyer post pour supprimer les notifs
                 String username = preferences.getString(Constants.Pref.PREF_LOGIN, "-1");
                 String password = preferences.getString(Constants.Pref.PREF_PASSWORD, "-1");
-                HttpClient httpclient = new DefaultHttpClient();
                 HttpPost httppost = new HttpPost(URL_LOUGOUT);
 
                 List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
@@ -99,9 +99,9 @@ public class LogoutService {
                 editor.putString(Constants.Pref.PREF_LOGIN, "");
                 editor.putString(Constants.Pref.PREF_PASSWORD, "");
                 editor.putString(Constants.Pref.PREF_USER_ID, "");
-                editor.commit();
+                editor.apply();
 
-                if(removeAccountFuture.getResult() == true) {
+                if(removeAccountFuture.get().getResult()) {
                     return true;
                 } else {
                     return false;

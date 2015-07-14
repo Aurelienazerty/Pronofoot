@@ -1,6 +1,7 @@
 
 package com.pronofoot.teamazerty.app.core;
 
+import android.content.pm.PackageManager;
 import android.util.Log;
 
 import com.github.kevinsawicki.http.HttpRequest;
@@ -259,8 +260,8 @@ public class BootstrapService {
      * @return non-null but possibly empty list of bootstrap
      * @throws IOException
      */
-    public Grille getGrille(String user_id, String username, String password, int grille_id, int compet_id, String regId, String version) throws IOException {
-        return _getGrille(URL_GRILLE_RESULTAT, user_id, username, password, grille_id, compet_id, regId, version);
+    public Grille getGrille(String user_id, String username, String password, int grille_id, int compet_id, String regId, String version, String versionName) throws IOException {
+        return _getGrille(URL_GRILLE_RESULTAT, user_id, username, password, grille_id, compet_id, regId, version, versionName);
     }
 
     /**
@@ -271,8 +272,8 @@ public class BootstrapService {
      * @return Grille
      * @throws IOException
      */
-    public Grille getGrilleForUser(String user_id, String username, String password, int grille_id, int compet_id, String regId, String version) throws IOException {
-        return _getGrille(URL_GRILLE_PRONO, user_id, username, password, grille_id, compet_id, regId, version);
+    public Grille getGrilleForUser(String user_id, String username, String password, int grille_id, int compet_id, String regId, String version, String versionName) throws IOException {
+        return _getGrille(URL_GRILLE_PRONO, user_id, username, password, grille_id, compet_id, regId, version, versionName);
     }
 
     /**
@@ -284,7 +285,7 @@ public class BootstrapService {
      * @return Grille
      * @throws IOException
      */
-    private Grille _getGrille(String url, String user_id, String username, String password, int grille_id, int compet_id, String regId, String version) throws IOException {
+    private Grille _getGrille(String url, String user_id, String username, String password, int grille_id, int compet_id, String regId, String version, String versionName) throws IOException {
         GsonBuilder builder = new GsonBuilder();
         builder.registerTypeAdapter(Date.class, new JsonDeserializer<Date>() {
             public Date deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
@@ -292,9 +293,6 @@ public class BootstrapService {
             }
         });
 
-        GSON = builder.create();
-
-        Gson gson = builder.create();
         try {
             Map<String, String> params = new HashMap<String, String>();
             final String user_lang = Locale.getDefault().getLanguage();
@@ -306,11 +304,11 @@ public class BootstrapService {
             params.put(Constants.Param.PARAM_PASSWORD, "" + password);
             params.put(Constants.Param.PARAM_VERSION, "" + version);
             params.put(Constants.Param.PARAM_GCM_REGID, "" + regId);
+            params.put(Constants.Param.PARAM_ANDROID, "" + versionName);
 
             HttpRequest request = execute(HttpRequest.post(url, params, true));
 
-            Grille res = fromJson(request, Grille.class);
-            return res;
+            return fromJson(request, Grille.class);
         } catch (HttpRequestException e) {
             throw e.getCause();
         }
@@ -337,16 +335,13 @@ public class BootstrapService {
             Map<String, String> params = new HashMap<String, String>();
             final String user_lang = Locale.getDefault().getLanguage();
             params.put(Constants.Param.PARAM_USERLANG, user_lang);
-            if (futures == true) {
+            if (futures) {
                 params.put(Constants.Param.PARAM_FUTURE, "true");
             }
             params.put(Constants.Param.PARAM_COMPET_ID, "" + compet_id);
             //Log.i("TA", url);
             HttpRequest request = execute(HttpRequest.post(url, params, true));
-            CompetitionSelector retour = fromJson(request, CompetitionSelector.class);
-            if (futures == true) {
-            }
-            return retour;
+            return fromJson(request, CompetitionSelector.class);
         } catch (HttpRequestException e) {
             throw e.getCause();
         }
@@ -375,8 +370,7 @@ public class BootstrapService {
             params.put(Constants.Param.PARAM_USERLANG, user_lang);
             params.put(Constants.Param.PARAM_USER_ID, user_id + "");
             HttpRequest request = execute(HttpRequest.post(url, params, true));
-            StatUser retour = fromJson(request, StatUser.class);
-            return retour;
+            return fromJson(request, StatUser.class);
         } catch (HttpRequestException e) {
             throw e.getCause();
         }
