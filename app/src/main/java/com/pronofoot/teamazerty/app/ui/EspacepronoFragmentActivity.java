@@ -3,6 +3,7 @@ package com.pronofoot.teamazerty.app.ui;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.text.Html;
@@ -38,6 +39,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import butterknife.InjectView;
 import butterknife.Views;
@@ -95,7 +97,7 @@ public class EspacepronoFragmentActivity extends AbstractPronofootFragmentActivi
         boolean isLunched = getIntent().getBooleanExtra(Constants.Indent.LUNCHED, false);
         if (!isLunched) {
             SharedPreferences preferences = getSharedPreferences(Constants.Pref.PREF_NAME, 0);
-            boolean startOnResult = preferences.getString(Constants.Param.PARAM_HOME_PAGE_IS_RESULT, "n").equalsIgnoreCase("y");
+            boolean startOnResult = preferences.getBoolean(Constants.Param.PARAM_HOME_PAGE_IS_RESULT, false);
             if (startOnResult) {
                 navigateToResultat();
             }
@@ -202,8 +204,19 @@ public class EspacepronoFragmentActivity extends AbstractPronofootFragmentActivi
             public Boolean call() throws Exception {
 
                 Boolean res = false;
+                SharedPreferences preferences = getSharedPreferences(Constants.Pref.PREF_NAME, 0);
+                List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
+                final String user_id = preferences.getString(Constants.Pref.PREF_USER_ID, "-1");
+                final String username = preferences.getString(Constants.Pref.PREF_LOGIN, "-1");
+                final String password = preferences.getString(Constants.Pref.PREF_PASSWORD, "-1");
+                final String user_lang = Locale.getDefault().getLanguage();
 
-                List<NameValuePair> nameValuePairs = preparePost();
+                nameValuePairs.add(new BasicNameValuePair(Constants.Param.PARAM_USER_ID, user_id));
+                nameValuePairs.add(new BasicNameValuePair(Constants.Param.PARAM_USERNAME, username));
+                nameValuePairs.add(new BasicNameValuePair(Constants.Param.PARAM_USERMAIL, username));
+                nameValuePairs.add(new BasicNameValuePair(Constants.Param.PARAM_PASSWORD, password));
+                nameValuePairs.add(new BasicNameValuePair(Constants.Param.PARAM_USERLANG, user_lang));
+                nameValuePairs.add(new BasicNameValuePair(Constants.Param.PARAM_ANDROID, "" + Build.VERSION.RELEASE));
 
                 //Récupérer les valeurs et construire le POST
                 String id_grille = ((TextView)button_pronostique.getRootView().findViewById(R.id.grille_id_grille)).getText().toString();

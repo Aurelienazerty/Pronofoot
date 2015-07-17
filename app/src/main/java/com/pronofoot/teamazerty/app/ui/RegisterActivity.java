@@ -3,6 +3,7 @@ package com.pronofoot.teamazerty.app.ui;
 import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -122,15 +123,8 @@ public class RegisterActivity extends AbstractPronofootActivity {
         final String password = txtPassword.getText().toString();
         final String email = txtEmail.getText().toString();
         final String user_lang = Locale.getDefault().getLanguage();
-        String versionName;
-        try {
-            versionName = getApplicationContext().getPackageManager().getPackageInfo(getApplicationContext().getPackageName(), 0).versionName;
-        } catch (PackageManager.NameNotFoundException e) {
-            versionName = "NA";
-        }
         if (isValid()) {
             showProgress();
-            final String finalVersionName = versionName;
             registerTask = new SafeAsyncTask<Boolean>() {
 
                 public Boolean call() throws Exception {
@@ -144,7 +138,7 @@ public class RegisterActivity extends AbstractPronofootActivity {
                     nameValuePairs.add(new BasicNameValuePair(Constants.Param.PARAM_PASSWORD, password));
                     nameValuePairs.add(new BasicNameValuePair(Constants.Param.PARAM_USERMAIL, email));
                     nameValuePairs.add(new BasicNameValuePair(Constants.Param.PARAM_USERLANG, user_lang));
-                    nameValuePairs.add(new BasicNameValuePair(Constants.Param.PARAM_ANDROID, finalVersionName));
+                    nameValuePairs.add(new BasicNameValuePair(Constants.Param.PARAM_ANDROID, "" + Build.VERSION.RELEASE));
                     httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
                     HttpResponse response = httpclient.execute(httppost);

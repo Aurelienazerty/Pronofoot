@@ -1,7 +1,9 @@
 
 package com.pronofoot.teamazerty.app.core;
 
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.util.Log;
 
 import com.github.kevinsawicki.http.HttpRequest;
@@ -19,6 +21,7 @@ import com.pronofoot.teamazerty.app.model.Grille;
 import com.pronofoot.teamazerty.app.model.Resultat;
 import com.pronofoot.teamazerty.app.model.StatUser;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.Serializable;
@@ -127,7 +130,7 @@ public class BootstrapService {
      * @return request
      * @throws IOException
      */
-    protected HttpRequest execute(HttpRequest request) throws IOException {
+    public HttpRequest execute(HttpRequest request) throws IOException {
         if (!configure(request).ok())
             throw new IOException("Unexpected response code: " + request.code());
         return request;
@@ -176,14 +179,15 @@ public class BootstrapService {
         if (GSON == null) {
             GSON = new GsonBuilder().setDateFormat("yyyy-MM-dd hh:mm:ss.S").create();
         }
-        /*BufferedReader reader = request.bufferedReader();
+        /*BufferedReader reader2 = request.bufferedReader();
         String ligne;
-        while ((ligne=reader.readLine())!=null){
+        while ((ligne=reader2.readLine())!=null){
             Log.i("TA lecture : ", ligne);
         }*/
         try {
             return GSON.fromJson(reader, target);
         } catch (JsonParseException e) {
+            Log.e("TA", e.getMessage());
             throw new JsonException(e);
         } finally {
             try {
@@ -260,8 +264,8 @@ public class BootstrapService {
      * @return non-null but possibly empty list of bootstrap
      * @throws IOException
      */
-    public Grille getGrille(String user_id, String username, String password, int grille_id, int compet_id, String regId, String version, String versionName) throws IOException {
-        return _getGrille(URL_GRILLE_RESULTAT, user_id, username, password, grille_id, compet_id, regId, version, versionName);
+    public Grille getGrille(String user_id, String username, String password, int grille_id, int compet_id, String regId, String version) throws IOException {
+        return _getGrille(URL_GRILLE_RESULTAT, user_id, username, password, grille_id, compet_id, regId, version);
     }
 
     /**
@@ -272,8 +276,8 @@ public class BootstrapService {
      * @return Grille
      * @throws IOException
      */
-    public Grille getGrilleForUser(String user_id, String username, String password, int grille_id, int compet_id, String regId, String version, String versionName) throws IOException {
-        return _getGrille(URL_GRILLE_PRONO, user_id, username, password, grille_id, compet_id, regId, version, versionName);
+    public Grille getGrilleForUser(String user_id, String username, String password, int grille_id, int compet_id, String regId, String version) throws IOException {
+        return _getGrille(URL_GRILLE_PRONO, user_id, username, password, grille_id, compet_id, regId, version);
     }
 
     /**
@@ -285,13 +289,15 @@ public class BootstrapService {
      * @return Grille
      * @throws IOException
      */
-    private Grille _getGrille(String url, String user_id, String username, String password, int grille_id, int compet_id, String regId, String version, String versionName) throws IOException {
+    private Grille _getGrille(String url, String user_id, String username, String password, int grille_id, int compet_id, String regId, String version) throws IOException {
         GsonBuilder builder = new GsonBuilder();
         builder.registerTypeAdapter(Date.class, new JsonDeserializer<Date>() {
             public Date deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
-            return new Date(json.getAsJsonPrimitive().getAsLong());
+                return new Date(json.getAsJsonPrimitive().getAsLong());
             }
         });
+
+        GSON = builder.create();
 
         try {
             Map<String, String> params = new HashMap<String, String>();
@@ -304,7 +310,9 @@ public class BootstrapService {
             params.put(Constants.Param.PARAM_PASSWORD, "" + password);
             params.put(Constants.Param.PARAM_VERSION, "" + version);
             params.put(Constants.Param.PARAM_GCM_REGID, "" + regId);
-            params.put(Constants.Param.PARAM_ANDROID, "" + versionName);
+            params.put(Constants.Param.PARAM_ANDROID, "" + Build.VERSION.RELEASE);
+
+            //Log.i("TA", "POST : " + params);
 
             HttpRequest request = execute(HttpRequest.post(url, params, true));
 

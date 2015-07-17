@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v4.content.Loader;
+import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -75,13 +76,7 @@ public class EspacepronoPronoListFragment extends AsbstactGrilleResultatListFrag
                         int grille_id = i.getIntExtra(Constants.Indent.GRILLE_PRONO, -1);
                         int compet_id = i.getIntExtra(Constants.Indent.COMPET_ID, -1);
                         //this.getContext().getString();
-                        String versionName;
-                        try {
-                            versionName = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0).versionName;
-                        } catch (PackageManager.NameNotFoundException e) {
-                            versionName = "NA";
-                        }
-                        response = serviceProvider.getService(getActivity()).getGrilleForUser(user_id, username, password, grille_id, compet_id, regId, version, versionName);
+                        response = serviceProvider.getService(getActivity()).getGrilleForUser(user_id, username, password, grille_id, compet_id, regId, version);
                         nomGrille = response.getNom();
                         id_grille = response.getGrille_id();
                         firstProno = a.getIntent().getIntExtra(Constants.Indent.FIRST_GRILLE_PRONO, -1);
@@ -101,6 +96,7 @@ public class EspacepronoPronoListFragment extends AsbstactGrilleResultatListFrag
                     return initialItems;
                 }*/
                 } catch (Exception e) {
+                    Log.e("TA", e.getMessage());
                     e.printStackTrace();
                     return initialItems;
                 }

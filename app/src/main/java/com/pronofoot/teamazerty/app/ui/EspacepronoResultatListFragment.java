@@ -92,14 +92,8 @@ public class EspacepronoResultatListFragment extends AsbstactGrilleResultatListF
                         if (user != -1) {
                             user_id = "" + user;
                         }
-                        String versionName;
-                        try {
-                            versionName = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0).versionName;
-                        } catch (PackageManager.NameNotFoundException e) {
-                            versionName = "NA";
-                        }
 
-                        response = serviceProvider.getService(a).getGrille(user_id, username, password, grille_id, compet_id, regId, version, versionName);
+                        response = serviceProvider.getService(a).getGrille(user_id, username, password, grille_id, compet_id, regId, version);
                         nomGrille = response.getNom();
                         id_grille = response.getGrille_id();
                         lastResultat = a.getIntent().getIntExtra(Constants.Indent.LAST_GRILLE_RESULTAT, -1);
@@ -119,6 +113,7 @@ public class EspacepronoResultatListFragment extends AsbstactGrilleResultatListF
                     return initialItems;
                 }*/
                 } catch (Exception e) {
+                    Log.e("TA", e.getMessage());
                     e.printStackTrace();
                     return initialItems;
                 }

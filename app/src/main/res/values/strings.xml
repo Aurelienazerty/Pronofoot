@@ -2,10 +2,10 @@
 
 <resources>
 
-    <string name="banner_ad_unit_id">ca-app-pub-4330460271648457/4113406127</string>
+    <string name="banner_ad_unit_id" translatable="false">ca-app-pub-4330460271648457/4113406127</string>
 
     <!-- Main -->
-    <string name="app_name">Pronofoot</string>
+    <string name="app_name" translatable="false">Pronofoot</string>
     <string name="refresh_action">Refresh</string>
     <string name="logout_action">Lougout</string>
     <string name="forum_link_label">Support / Suggestions</string>
@@ -15,11 +15,12 @@
 
     <!-- Partie Profil -->
     <string name="page_profile">Settings</string>
-    <string name="username">Aurelienazerty</string>
+    <string name="username" translatable="false">Aurelienazerty</string>
     <string name="label_notification">Receive notifications</string>
     <string name="label_information">Receive information</string>
     <string name="label_newsletter">Receive newsletter</string>
     <string name="label_home_page">Start on result page</string>
+    <string name="label_publicite">Show ads</string>
     <string name="error_loading_profil">Failed to load profile</string>
     <string name="error_modifier_profil">Failed to update profile</string>
     <string name="label_save_profil">Save</string>
@@ -33,21 +34,20 @@
     <string name="error_loading_classement">Failed to load ranking</string>
     <string name="error_loading_resultat">Failed to load last result</string>
     <string name="label_nom_grille">Grid name</string>
-    <string name="grille_date">27/10 11:25</string>
+    <string name="grille_date" translatable="false">27/10 11:25</string>
     <string name="format_date">dd/MM hh:mm a</string>
     <string name="unite_point">Points</string>
-    <string name="unite_pourcent">%</string>
+    <string name="unite_pourcent" translatable="false">%</string>
     <string name="unite_classement">th</string>
 
     <!-- Partie pronostique -->
     <string name="page_grille">Bet</string>
     <string name="page_resultat">Result</string>
-    <string name="label_victoire_domicile">1</string>
-    <string name="label_victoire_null">N</string>
-    <string name="label_victoire_exterieur">2</string>
-    <string name="label_equipe_domicile">ASF Andrézieux-Bouthéon</string>
-    <string name="label_equipe_exterieure">Zénith Saint-Pétersbourg</string>
-    <string name="error_loading_grille">Failed to load the grid</string>
+    <string name="label_victoire_domicile" translatable="false">1</string>
+    <string name="label_victoire_null" translatable="false">N</string>
+    <string name="label_victoire_exterieur" translatable="false">2</string>
+    <string name="label_equipe_domicile" translatable="false">ASF Andrézieux-Bouthéon</string>
+    <string name="label_equipe_exterieure" translatable="false">Zénith Saint-Pétersbourg</string>
     <string name="no_grille">No grid, click to reload</string>
     <string name="submit_grille">Send my bet</string>
     <string name="msg_prono_save">Bet saved</string>
@@ -94,13 +94,14 @@
 
     <!-- Stat User -->
     <string name="label_saison">/ season</string>
-    <string name="saison">2014-2015</string>
+    <string name="saison" translatable="false">2014-2015</string>
     <string name="label_competition">Competition</string>
     <string name="label_point">Points</string>
-    <string name="label_pourcent">%</string>
-    <string name="no_partcipation">-</string>
+    <string name="no_partcipation" translatable="false">-</string>
     <string name="label_more_stat">More statistics</string>
     <string name="no_stat">No Statistic</string>
     <string name="error_loading_stats">Failed to load user statistic</string>
+    <string name="error_loading_grille">Failed to load the grid</string>
+    <string name="label_pourcent" translatable="false">%</string>
 
 </resources>

@@ -39,6 +39,7 @@ public class Constants {
         public static final String PREF_LOGIN = "pronofoot_login";
         public static final String PREF_PASSWORD = "pronofoot_password";
         public static final String PREF_USER_ID = "pronofoot_user_id";
+        public static final String PREF_PUB = "pronofoot_publicite";
     }
 
     public static class Push {
@@ -82,6 +83,7 @@ public class Constants {
         public static final String PARAM_INFO = "info";
         public static final String PARAM_NEWSLETTER = "newsletter";
         public static final String PARAM_HOME_PAGE_IS_RESULT = "home_page_result";
+        public static final String PARAM_WANT_PUB = "want_pub";
 
         public static final String CLASSEMENT_POURCENT = "pourcent";
         public static final String PART_CLASSEMENT = "part";

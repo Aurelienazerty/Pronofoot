@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -48,6 +49,8 @@ public class ProfilActivity extends AbstractPronofootActivity {
     Switch newsletter;
     @InjectView(R.id.switch_home)
     Switch homePage;
+    @InjectView(R.id.switch_publicite)
+    Switch publicite;
     @InjectView(R.id.profil_username)
     TextView lbl_username;
     @InjectView(R.id.profil_loading)
@@ -65,6 +68,7 @@ public class ProfilActivity extends AbstractPronofootActivity {
     private boolean val_info;
     private boolean val_newsletter;
     private boolean val_homePage;
+    private boolean val_publicite;
     private String val_username;
     private String regId;
     private String version;
@@ -114,7 +118,17 @@ public class ProfilActivity extends AbstractPronofootActivity {
                 try {
                     SharedPreferences preferences = getSharedPreferences(Constants.Pref.PREF_NAME, 0);
 
-                    nameValuePairs = preparePost();
+                    final String user_id = preferences.getString(Constants.Pref.PREF_USER_ID, "-1");
+                    final String username = preferences.getString(Constants.Pref.PREF_LOGIN, "-1");
+                    final String password = preferences.getString(Constants.Pref.PREF_PASSWORD, "-1");
+                    final String user_lang = Locale.getDefault().getLanguage();
+
+                    nameValuePairs.add(new BasicNameValuePair(Constants.Param.PARAM_USER_ID, user_id));
+                    nameValuePairs.add(new BasicNameValuePair(Constants.Param.PARAM_USERNAME, username));
+                    nameValuePairs.add(new BasicNameValuePair(Constants.Param.PARAM_USERMAIL, username));
+                    nameValuePairs.add(new BasicNameValuePair(Constants.Param.PARAM_PASSWORD, password));
+                    nameValuePairs.add(new BasicNameValuePair(Constants.Param.PARAM_USERLANG, user_lang));
+                    nameValuePairs.add(new BasicNameValuePair(Constants.Param.PARAM_ANDROID, Build.VERSION.RELEASE));
                     if (edit) {
                         String state;
                         if (notif.isChecked()) {
@@ -135,13 +149,11 @@ public class ProfilActivity extends AbstractPronofootActivity {
                             state = "n";
                         }
                         nameValuePairs.add(new BasicNameValuePair(Constants.Param.PARAM_NEWSLETTER, state));
-                        if (homePage.isChecked()) {
-                            state = "y";
-                        } else {
-                            state = "n";
-                        }
+
+
                         SharedPreferences.Editor editor = preferences.edit();
-                        editor.putString(Constants.Param.PARAM_HOME_PAGE_IS_RESULT, state);
+                        editor.putBoolean(Constants.Param.PARAM_HOME_PAGE_IS_RESULT, homePage.isChecked());
+                        editor.putBoolean(Constants.Param.PARAM_WANT_PUB, publicite.isChecked());
                         editor.apply();
                     }
 
@@ -157,7 +169,8 @@ public class ProfilActivity extends AbstractPronofootActivity {
                     val_info = jsonResponse.getString(Constants.Param.PARAM_INFO).equalsIgnoreCase("y");
                     val_newsletter = jsonResponse.getString(Constants.Param.PARAM_NEWSLETTER).equalsIgnoreCase("y");
 
-                    val_homePage = preferences.getString(Constants.Param.PARAM_HOME_PAGE_IS_RESULT, "n").equalsIgnoreCase("y");
+                    val_homePage = preferences.getBoolean(Constants.Param.PARAM_HOME_PAGE_IS_RESULT, false);
+                    val_publicite = preferences.getBoolean(Constants.Param.PARAM_WANT_PUB, true);
 
                     res = true;
                 } catch (IOException e) {
@@ -195,6 +208,7 @@ public class ProfilActivity extends AbstractPronofootActivity {
                 info.setChecked(val_info);
                 newsletter.setChecked(val_newsletter);
                 homePage.setChecked(val_homePage);
+                publicite.setChecked(val_publicite);
                 profilTask = null;
             }
 
@@ -224,6 +238,7 @@ public class ProfilActivity extends AbstractPronofootActivity {
         info.setVisibility(View.VISIBLE);
         newsletter.setVisibility(View.VISIBLE);
         homePage.setVisibility(View.VISIBLE);
+        publicite.setVisibility(View.INVISIBLE);//Option cachée pour le moment
         buttonSave.setVisibility(View.VISIBLE);
         buttonMore.setVisibility(View.VISIBLE);
         progressBar.setVisibility(View.INVISIBLE);
@@ -235,6 +250,7 @@ public class ProfilActivity extends AbstractPronofootActivity {
         info.setVisibility(View.INVISIBLE);
         newsletter.setVisibility(View.INVISIBLE);
         homePage.setVisibility(View.INVISIBLE);
+        publicite.setVisibility(View.INVISIBLE);
         buttonSave.setVisibility(View.INVISIBLE);
         buttonMore.setVisibility(View.INVISIBLE);
         progressBar.setVisibility(View.VISIBLE);
