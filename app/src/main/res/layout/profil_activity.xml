@@ -40,6 +40,13 @@
         style="@style/SwitchPronofoot"
      />
 
+    <Switch
+        android:text="@string/label_publicite"
+        android:id="@+id/switch_publicite"
+        android:layout_below="@+id/switch_home"
+        android:checked="true"
+        style="@style/SwitchPronofoot" />
+
     <ProgressBar
         android:id="@+id/profil_loading"
         style="@style/ListSpinner"
@@ -50,7 +57,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="20dp"
-        android:layout_below="@+id/switch_home"
+        android:layout_below="@+id/switch_publicite"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="false"
         android:gravity="center_horizontal">

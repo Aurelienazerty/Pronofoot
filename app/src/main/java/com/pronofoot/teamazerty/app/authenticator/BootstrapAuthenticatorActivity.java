@@ -10,12 +10,12 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.Html;
 import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnKeyListener;
@@ -90,7 +90,6 @@ public class BootstrapAuthenticatorActivity extends SherlockAccountAuthenticator
     private TextWatcher watcher = validationTextWatcher();
 
     private SafeAsyncTask<Boolean> authenticationTask;
-    private String authToken;
     private String authTokenType;
 
     /**
@@ -286,6 +285,7 @@ public class BootstrapAuthenticatorActivity extends SherlockAccountAuthenticator
                 nameValuePairs.add(new BasicNameValuePair(Constants.Param.PARAM_PASSWORD, password));
                 nameValuePairs.add(new BasicNameValuePair(Constants.Param.PARAM_GCM_REGID, regId));
                 nameValuePairs.add(new BasicNameValuePair(Constants.Param.PARAM_VERSION, version));
+                nameValuePairs.add(new BasicNameValuePair(Constants.Param.PARAM_ANDROID, "" + Build.VERSION.RELEASE));
                 httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
                 HttpResponse response = httpclient.execute(httppost);
@@ -305,12 +305,12 @@ public class BootstrapAuthenticatorActivity extends SherlockAccountAuthenticator
                     editor.putString(Constants.Pref.PREF_LOGIN, authUser.getUsername());
                     editor.putString(Constants.Pref.PREF_PASSWORD, authUser.getUser_password());
                     editor.putString(Constants.Pref.PREF_USER_ID, authUser.getUser_id());
-                    editor.commit();
+                    editor.apply();
                 } else {
                     editor.putString(Constants.Pref.PREF_LOGIN, "");
                     editor.putString(Constants.Pref.PREF_PASSWORD, "");
                     editor.putString(Constants.Pref.PREF_USER_ID, "");
-                    editor.commit();
+                    editor.apply();
                 }
                 return res;
             }
@@ -379,6 +379,7 @@ public class BootstrapAuthenticatorActivity extends SherlockAccountAuthenticator
             accountManager.setPassword(account, password);
         }
         final Intent intent = new Intent();
+        String authToken;
         authToken = token;
         intent.putExtra(KEY_ACCOUNT_NAME, username);
         intent.putExtra(KEY_ACCOUNT_TYPE, Constants.Auth.BOOTSTRAP_ACCOUNT_TYPE);

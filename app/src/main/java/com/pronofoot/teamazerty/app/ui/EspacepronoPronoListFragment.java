@@ -2,8 +2,10 @@ package com.pronofoot.teamazerty.app.ui;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v4.content.Loader;
+import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -31,7 +33,7 @@ public class EspacepronoPronoListFragment extends AsbstactGrilleResultatListFrag
         getListAdapter()
                 .addHeader(header);
 
-        footer = getActivity().getLayoutInflater()
+        footer = activity.getLayoutInflater()
                 .inflate(R.layout.espaceprono_prono_footer, null);
         getListAdapter()
                 .addFooter(footer);
@@ -94,6 +96,7 @@ public class EspacepronoPronoListFragment extends AsbstactGrilleResultatListFrag
                     return initialItems;
                 }*/
                 } catch (Exception e) {
+                    Log.e("TA", e.getMessage());
                     e.printStackTrace();
                     return initialItems;
                 }

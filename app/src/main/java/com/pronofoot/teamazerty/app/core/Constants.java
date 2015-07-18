@@ -39,12 +39,12 @@ public class Constants {
         public static final String PREF_LOGIN = "pronofoot_login";
         public static final String PREF_PASSWORD = "pronofoot_password";
         public static final String PREF_USER_ID = "pronofoot_user_id";
+        public static final String PREF_PUB = "pronofoot_publicite";
     }
 
     public static class Push {
         private Push() {}
 
-        public static final String GOOGLE_API_KEY = "AIzaSyAhtRrvcGfov7YuayFs1LCEDFmRUjMdOWw";
         public static final String GOOGLE_PROJECT_ID = "297833814813";
         public static final String PARAM_MESSAGE = "message";
         public static final String PARAM_TYPE = "type";
@@ -72,6 +72,7 @@ public class Constants {
         public static final String PARAM_USERLANG = "user_lang";
         public static final String PARAM_GCM_REGID = "gcm_regid";
         public static final String PARAM_VERSION = "version";
+        public static final String PARAM_ANDROID = "android";
         public static final String PARAM_CONFIRMCREDENTIALS = "confirmCredentials";
         public static final String PARAM_AUTHTOKEN_TYPE = "authtokenType";
         public static final String PARAM_GRILLE_ID = "grille_id";
@@ -82,6 +83,7 @@ public class Constants {
         public static final String PARAM_INFO = "info";
         public static final String PARAM_NEWSLETTER = "newsletter";
         public static final String PARAM_HOME_PAGE_IS_RESULT = "home_page_result";
+        public static final String PARAM_WANT_PUB = "want_pub";
 
         public static final String CLASSEMENT_POURCENT = "pourcent";
         public static final String PART_CLASSEMENT = "part";
@@ -176,7 +178,6 @@ public class Constants {
         public static final String VIELLE_VERSION = "Vieille version";
         public static final String USER = "user";
         public static final String REASON_REGISTER_FAIL_MAIL = "mail";
-        public static final String REASON_REGISTER_FAIL_LOGIN = "login";
 
     }
 

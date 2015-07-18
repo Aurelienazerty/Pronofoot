@@ -2,6 +2,7 @@ package com.pronofoot.teamazerty.app.ui;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v4.content.Loader;
 import android.util.Log;
@@ -112,6 +113,7 @@ public class EspacepronoResultatListFragment extends AsbstactGrilleResultatListF
                     return initialItems;
                 }*/
                 } catch (Exception e) {
+                    Log.e("TA", e.getMessage());
                     e.printStackTrace();
                     return initialItems;
                 }

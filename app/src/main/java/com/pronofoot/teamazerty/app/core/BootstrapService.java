@@ -1,6 +1,9 @@
 
 package com.pronofoot.teamazerty.app.core;
 
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.util.Log;
 
 import com.github.kevinsawicki.http.HttpRequest;
@@ -18,6 +21,7 @@ import com.pronofoot.teamazerty.app.model.Grille;
 import com.pronofoot.teamazerty.app.model.Resultat;
 import com.pronofoot.teamazerty.app.model.StatUser;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.Serializable;
@@ -126,7 +130,7 @@ public class BootstrapService {
      * @return request
      * @throws IOException
      */
-    protected HttpRequest execute(HttpRequest request) throws IOException {
+    public HttpRequest execute(HttpRequest request) throws IOException {
         if (!configure(request).ok())
             throw new IOException("Unexpected response code: " + request.code());
         return request;
@@ -175,14 +179,15 @@ public class BootstrapService {
         if (GSON == null) {
             GSON = new GsonBuilder().setDateFormat("yyyy-MM-dd hh:mm:ss.S").create();
         }
-        /*BufferedReader reader = request.bufferedReader();
+        /*BufferedReader reader2 = request.bufferedReader();
         String ligne;
-        while ((ligne=reader.readLine())!=null){
+        while ((ligne=reader2.readLine())!=null){
             Log.i("TA lecture : ", ligne);
         }*/
         try {
             return GSON.fromJson(reader, target);
         } catch (JsonParseException e) {
+            Log.e("TA", e.getMessage());
             throw new JsonException(e);
         } finally {
             try {
@@ -288,13 +293,12 @@ public class BootstrapService {
         GsonBuilder builder = new GsonBuilder();
         builder.registerTypeAdapter(Date.class, new JsonDeserializer<Date>() {
             public Date deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
-            return new Date(json.getAsJsonPrimitive().getAsLong());
+                return new Date(json.getAsJsonPrimitive().getAsLong());
             }
         });
 
         GSON = builder.create();
 
-        Gson gson = builder.create();
         try {
             Map<String, String> params = new HashMap<String, String>();
             final String user_lang = Locale.getDefault().getLanguage();
@@ -306,11 +310,13 @@ public class BootstrapService {
             params.put(Constants.Param.PARAM_PASSWORD, "" + password);
             params.put(Constants.Param.PARAM_VERSION, "" + version);
             params.put(Constants.Param.PARAM_GCM_REGID, "" + regId);
+            params.put(Constants.Param.PARAM_ANDROID, "" + Build.VERSION.RELEASE);
+
+            //Log.i("TA", "POST : " + params);
 
             HttpRequest request = execute(HttpRequest.post(url, params, true));
 
-            Grille res = fromJson(request, Grille.class);
-            return res;
+            return fromJson(request, Grille.class);
         } catch (HttpRequestException e) {
             throw e.getCause();
         }
@@ -337,16 +343,13 @@ public class BootstrapService {
             Map<String, String> params = new HashMap<String, String>();
             final String user_lang = Locale.getDefault().getLanguage();
             params.put(Constants.Param.PARAM_USERLANG, user_lang);
-            if (futures == true) {
+            if (futures) {
                 params.put(Constants.Param.PARAM_FUTURE, "true");
             }
             params.put(Constants.Param.PARAM_COMPET_ID, "" + compet_id);
             //Log.i("TA", url);
             HttpRequest request = execute(HttpRequest.post(url, params, true));
-            CompetitionSelector retour = fromJson(request, CompetitionSelector.class);
-            if (futures == true) {
-            }
-            return retour;
+            return fromJson(request, CompetitionSelector.class);
         } catch (HttpRequestException e) {
             throw e.getCause();
         }
@@ -375,8 +378,7 @@ public class BootstrapService {
             params.put(Constants.Param.PARAM_USERLANG, user_lang);
             params.put(Constants.Param.PARAM_USER_ID, user_id + "");
             HttpRequest request = execute(HttpRequest.post(url, params, true));
-            StatUser retour = fromJson(request, StatUser.class);
-            return retour;
+            return fromJson(request, StatUser.class);
         } catch (HttpRequestException e) {
             throw e.getCause();
         }

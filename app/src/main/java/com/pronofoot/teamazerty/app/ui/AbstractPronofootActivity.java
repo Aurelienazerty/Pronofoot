@@ -1,12 +1,27 @@
 package com.pronofoot.teamazerty.app.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.MenuItem;
+import com.pronofoot.teamazerty.app.BootstrapServiceProvider;
 import com.pronofoot.teamazerty.app.Injector;
 import com.pronofoot.teamazerty.app.core.Constants;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+
+import javax.inject.Inject;
 
 import butterknife.Views;
 
@@ -17,6 +32,9 @@ import static android.content.Intent.FLAG_ACTIVITY_SINGLE_TOP;
  * Base activity for a Bootstrap activity which does not use fragments.
  */
 public abstract class AbstractPronofootActivity extends SherlockActivity {
+
+    @Inject
+    BootstrapServiceProvider serviceProvider;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

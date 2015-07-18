@@ -38,7 +38,7 @@ public class CarouselActivity extends AbstractPronofootFragmentActivity {
         boolean isLunched = getIntent().getBooleanExtra(Constants.Indent.LUNCHED, false);
         if (!isLunched) {
             SharedPreferences preferences = getSharedPreferences(Constants.Pref.PREF_NAME, 0);
-            boolean startOnResult = preferences.getString(Constants.Param.PARAM_HOME_PAGE_IS_RESULT, "n").equalsIgnoreCase("y");
+            boolean startOnResult = preferences.getBoolean(Constants.Param.PARAM_HOME_PAGE_IS_RESULT, false);
             if (!startOnResult) {
                 navigateToEspaceProno();
             }

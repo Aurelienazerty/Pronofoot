@@ -68,7 +68,7 @@ public class StatUserListFragment extends ItemListFragment<Stat> {
         getListAdapter()
                 .addHeader(header);
 
-        footer = getActivity().getLayoutInflater()
+        footer = activity.getLayoutInflater()
                 .inflate(R.layout.statuser_footer, null);
         getListAdapter()
                 .addFooter(footer);
@@ -102,7 +102,7 @@ public class StatUserListFragment extends ItemListFragment<Stat> {
                         saison = response.getSaison();
                         username = response.getUsername();
                         //header.get
-                        if (response != null && response.getStats() != null) {
+                        if ((response != null) && (response.getStats() != null)) {
                             return response.getStats();
                         }
                         return Collections.emptyList();
