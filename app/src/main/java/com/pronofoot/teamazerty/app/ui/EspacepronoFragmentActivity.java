@@ -180,13 +180,14 @@ public class EspacepronoFragmentActivity extends AbstractPronofootFragmentActivi
 
         if (changedProno == null) {
             changedProno = new ArrayList<BasicNameValuePair>();
-        }
-        //Regarder s'il n'y ai pas
-        String match = "match[" + id_match + "]";
-        for (final BasicNameValuePair p : changedProno) {
-            if (p.getName().equalsIgnoreCase(match)) {
-                changedProno.remove(p);
-            }
+        } else {
+			//Regarder s'il n'y est pas
+			String match = "match[" + id_match + "]";
+			for (final BasicNameValuePair p : changedProno) {
+				if (p != null && p.getName().equalsIgnoreCase(match)) {
+					changedProno.remove(p);
+				}
+			}
         }
         changedProno.add(new BasicNameValuePair("match[" + id_match + "]", prono));
     }
