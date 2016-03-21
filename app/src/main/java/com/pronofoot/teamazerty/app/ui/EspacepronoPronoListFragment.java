@@ -42,6 +42,15 @@ public class EspacepronoPronoListFragment extends AsbstactGrilleResultatListFrag
     public void actualiserAffichage() {
         if (nomGrille != null) {
             ((TextView) header.findViewById(R.id.grille_nom_grille)).setText(nomGrille);
+            String info;
+            if (!prolongations) {
+                info = getResources().getString(R.string.info_prolongation);
+            } else if (!matchNull) {
+                info = getResources().getString(R.string.info_no_null);
+            } else {
+                info = "";
+            }
+            ((TextView) header.findViewById(R.id.lbl_infomatch)).setText(info);
             ((TextView) header.findViewById(R.id.grille_id_grille)).setText(id_grille + "");
             if (id_grille == -1 || firstProno == -1 || id_grille == firstProno) {
                 header.findViewById(R.id.buttonMoinsProno).setVisibility(View.INVISIBLE);
@@ -79,6 +88,9 @@ public class EspacepronoPronoListFragment extends AsbstactGrilleResultatListFrag
                         response = serviceProvider.getService(getActivity()).getGrilleForUser(user_id, username, password, grille_id, compet_id, regId, version);
                         nomGrille = response.getNom();
                         id_grille = response.getGrille_id();
+                        matchNull = response.isMatchNuls();
+                        prolongations = response.isProlongations();
+
                         firstProno = a.getIntent().getIntExtra(Constants.Indent.FIRST_GRILLE_PRONO, -1);
                         lastProno = a.getIntent().getIntExtra(Constants.Indent.LAST_GRILLE_PRONO, -1);
                         if (response != null && response.getMatchs() != null && response.getMatchs().size() > 0) {

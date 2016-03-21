@@ -19,11 +19,22 @@
         android:id="@+id/grille_nom_grille"
         android:text="@string/label_nom_grille"
         style="@style/TextHeader"
+        android:layout_toRightOf="@+id/buttonMoinsProno"
+        android:layout_toLeftOf="@+id/buttonPlusProno"
+        android:layout_toStartOf="@+id/buttonPlusProno"
     />
 
     <TextView
         android:id="@+id/grille_id_grille"
         style="@style/Invisible" />
+
+    <TextView
+        android:id="@+id/lbl_infomatch"
+        style="@style/Info"
+        android:layout_below="@id/grille_nom_grille"
+        android:layout_toRightOf="@+id/buttonMoinsProno"
+        android:layout_toLeftOf="@+id/buttonPlusProno"
+        android:layout_toStartOf="@+id/buttonPlusProno" />
 
 
     <TextView
@@ -31,7 +42,7 @@
         android:width="32dp"
         android:gravity="center_horizontal"
         android:text="@string/label_victoire_domicile"
-        android:layout_below="@id/grille_nom_grille"
+        android:layout_below="@id/lbl_infomatch"
         android:layout_toLeftOf="@+id/lbl_victoire_null"
         style="@style/HeaderTableau" />
 
@@ -42,7 +53,7 @@
         android:layout_centerHorizontal="true"
         android:orientation="horizontal"
         android:gravity="center"
-        android:layout_below="@id/grille_nom_grille"
+        android:layout_below="@id/lbl_infomatch"
         style="@style/HeaderTableau"/>
 
     <TextView
@@ -51,7 +62,7 @@
         android:gravity="center_horizontal"
         android:text="@string/label_victoire_exterieur"
         android:textColor="@color/table_text"
-        android:layout_below="@id/grille_nom_grille"
+        android:layout_below="@id/lbl_infomatch"
         android:layout_toRightOf="@+id/lbl_victoire_null"
         style="@style/HeaderTableau"
     />

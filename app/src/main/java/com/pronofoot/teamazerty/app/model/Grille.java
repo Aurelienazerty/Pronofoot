@@ -17,6 +17,7 @@ public class Grille implements Serializable {
     protected int grille_id;
     protected String nom;
     protected boolean matchNuls;
+    protected boolean prolongations;
     protected Date debut;
     protected Date fin;
 
@@ -46,6 +47,14 @@ public class Grille implements Serializable {
         this.nom = nom;
     }
 
+
+    public boolean isProlongations() {
+        return prolongations;
+    }
+
+    public void setProlongations(final boolean prolongations) {
+        this.prolongations = prolongations;
+    }
 
     public boolean isMatchNuls() {
         return matchNuls;
@@ -80,6 +89,8 @@ public class Grille implements Serializable {
         "class:" + "Grille," +
         "grille_id:" + grille_id + "," +
         "nom:" + getNom() + "," +
+        "Match Null:" + isMatchNuls() + "," +
+        "Prolongation:" + isProlongations() + "," +
         "matchs:" + matchs + "," +
         "}";
     }

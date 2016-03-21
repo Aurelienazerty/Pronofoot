@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
 import android.widget.ListView;
 
@@ -33,6 +34,8 @@ abstract class AsbstactGrilleResultatListFragment<Match> extends ItemListFragmen
     protected Grille response;
     protected String nomGrille;
     protected int id_grille;
+    protected boolean matchNull = false;
+    protected boolean prolongations = false;
 
     //Propriétes partagées
     protected String user_id, username, password;
@@ -87,7 +90,7 @@ abstract class AsbstactGrilleResultatListFragment<Match> extends ItemListFragmen
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        setEmptyText(R.string.no_grille);
+        setEmptyText(Html.fromHtml(getString(R.string.no_grille)));
 
     }
 

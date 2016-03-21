@@ -9,7 +9,7 @@
     <string name="error_loading_grille">Failed to load the grid</string>
     <string name="error_loading_list_grille">Failed to load the grids</string>
     <string name="error_loading_profil">Failed to load profile</string>
-    <string name="error_loading_resultat">Failed to load last result</string>
+    <string name="error_loading_resultat">Failed to load last result, try &lt;a href=http://foot.team-azerty.com/>on website&lt;/a></string>
     <string name="error_loading_stats">Failed to load user statistic</string>
     <string name="error_modifier_profil">Failed to update profile</string>
     <string name="error_network">Can not connect</string>
@@ -51,7 +51,7 @@
     <string name="msg_prono_save">Bet saved</string>
     <string name="msg_sending_prono">Sending bet</string>
     <string name="no_classement">No rank</string>
-    <string name="no_grille">No grid, click to reload</string>
+    <string name="no_grille">No grid, click to reload, try &lt;a href=http://foot.team-azerty.com/>on website&lt;/a></string>
     <string name="no_stat">No Statistic</string>
     <string name="open">Open</string>
     <string name="page_classement_point">Rank</string>
@@ -69,4 +69,7 @@
     <string name="unite_point">Points</string>
     <string name="username_error">Invalid or existing username</string>
     <string name="wait">Wait</string>
+    <string name="no_partcipation" translatable="false">No participation</string>
+    <string name="info_no_null">No draw mach</string>
+    <string name="info_prolongation">Result after the full-time (no extra-time score)</string>
 </resources>

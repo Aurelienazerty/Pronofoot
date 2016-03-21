@@ -50,6 +50,15 @@ public class EspacepronoResultatListFragment extends AsbstactGrilleResultatListF
             } else {
                 usernameAffiche = username;
             }
+            String info;
+            if (!prolongations) {
+                info = getResources().getString(R.string.info_prolongation);
+            } else if (!matchNull) {
+                info = getResources().getString(R.string.info_no_null);
+            } else {
+                info = "";
+            }
+            ((TextView) header.findViewById(R.id.lbl_infomatch)).setText(info);
             ((TextView) header.findViewById(R.id.grille_username)).setText(usernameAffiche);
             ((TextView) header.findViewById(R.id.grille_nom_grille)).setText(nomGrille);
             ((TextView) header.findViewById(R.id.grille_id_grille)).setText(id_grille + "");
@@ -96,6 +105,9 @@ public class EspacepronoResultatListFragment extends AsbstactGrilleResultatListF
                         response = serviceProvider.getService(a).getGrille(user_id, username, password, grille_id, compet_id, regId, version);
                         nomGrille = response.getNom();
                         id_grille = response.getGrille_id();
+                        matchNull = response.isMatchNuls();
+                        prolongations = response.isProlongations();
+
                         lastResultat = a.getIntent().getIntExtra(Constants.Indent.LAST_GRILLE_RESULTAT, -1);
                         firstResultat = a.getIntent().getIntExtra(Constants.Indent.FIRST_GRILLE_RESULTAT, -1);
                         if (response != null && response.getMatchs() != null && response.getMatchs().size() > 0) {

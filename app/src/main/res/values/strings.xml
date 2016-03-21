@@ -31,8 +31,8 @@
     <string name="page_classement_pourcent">% Rank</string>
     <string name="page_derniere_grille">Last result</string>
     <string name="no_classement">No rank</string>
-    <string name="error_loading_classement">Failed to load ranking</string>
-    <string name="error_loading_resultat">Failed to load last result</string>
+    <string name="error_loading_classement">Failed to load ranking, try &lt;a href=http://foot.team-azerty.com/>on website&lt;/a></string>
+    <string name="error_loading_resultat">Failed to load last result, try &lt;a href=http://foot.team-azerty.com/>on website&lt;/a></string>
     <string name="label_nom_grille">Grid name</string>
     <string name="grille_date" translatable="false">27/10 11:25</string>
     <string name="format_date">dd/MM hh:mm a</string>
@@ -41,6 +41,8 @@
     <string name="unite_classement">th</string>
 
     <!-- Partie pronostique -->
+    <string name="info_no_null">No draw mach</string>
+    <string name="info_prolongation">Result after the full-time (no extra-time score)</string>
     <string name="page_grille">Bet</string>
     <string name="page_resultat">Result</string>
     <string name="label_victoire_domicile" translatable="false">1</string>
@@ -48,7 +50,7 @@
     <string name="label_victoire_exterieur" translatable="false">2</string>
     <string name="label_equipe_domicile" translatable="false">ASF Andrézieux-Bouthéon</string>
     <string name="label_equipe_exterieure" translatable="false">Zénith Saint-Pétersbourg</string>
-    <string name="no_grille">No grid, click to reload</string>
+    <string name="no_grille">No grid, click to reload, try &lt;a href=http://foot.team-azerty.com/>on website&lt;/a></string>
     <string name="submit_grille">Send my bet</string>
     <string name="msg_prono_save">Bet saved</string>
     <string name="error_sending_prono">Failed to send you bet</string>
@@ -97,7 +99,7 @@
     <string name="saison" translatable="false">2014-2015</string>
     <string name="label_competition">Competition</string>
     <string name="label_point">Points</string>
-    <string name="no_partcipation" translatable="false">-</string>
+    <string name="no_partcipation">No participation</string>
     <string name="label_more_stat">More statistics</string>
     <string name="no_stat">No Statistic</string>
     <string name="error_loading_stats">Failed to load user statistic</string>

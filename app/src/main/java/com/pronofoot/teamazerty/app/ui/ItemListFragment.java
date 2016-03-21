@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.Loader;
+import android.text.Spanned;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -431,6 +432,18 @@ public abstract class ItemListFragment<E> extends SherlockFragment
      * @return this fragment
      */
     protected ItemListFragment<E> setEmptyText(final String message) {
+        if (emptyView != null)
+            emptyView.setText(message);
+        return this;
+    }
+
+    /**
+     * Set empty text on list fragment
+     *
+     * @param message
+     * @return this fragment
+     */
+    protected ItemListFragment<E> setEmptyText(final Spanned message) {
         if (emptyView != null)
             emptyView.setText(message);
         return this;

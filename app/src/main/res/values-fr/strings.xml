@@ -27,7 +27,7 @@
     <string name="page_derniere_grille">Dernière grille</string>
     <string name="no_classement">Pas de classement</string>
     <string name="error_loading_classement">Echec lors du chargement du classement</string>
-    <string name="error_loading_resultat">Echec lors du chargement du resultat</string>
+    <string name="error_loading_resultat">Echec lors du chargement du resultat, essayez &lt;a href=http://foot.team-azerty.com/>sur le site&lt;/a></string>
     <string name="label_nom_grille">Nom de la grille</string>
     <string name="format_date">dd/MM HH:mm</string>
     <string name="unite_point">Points</string>
@@ -37,7 +37,7 @@
     <string name="page_grille">Pronostiquez</string>
     <string name="page_resultat">Résultats</string>
     <string name="error_loading_grille">Echec lors du chargement de la grille</string>
-    <string name="no_grille">Pas de grille, cliquez sur recharger</string>
+    <string name="no_grille">Pas de grille, cliquez sur recharger, essayez &lt;a href=http://foot.team-azerty.com/>sur le site&lt;/a></string>
     <string name="submit_grille">Envoyer mon pronostique</string>
     <string name="msg_prono_save">Pronostiques enregistrés</string>
     <string name="error_sending_prono">Echec lors de l\'envoie du pronostique</string>
@@ -89,5 +89,8 @@
     <string name="error_loading_stats">Echec lors du chargement des statistiques</string>
     <string name="label_publicite">Afficher la publicité</string>
     <string name="label_voir_grille">Voir la grille</string>
+    <string name="no_partcipation">Aucune participation</string>
+    <string name="info_no_null">Pas de match null</string>
+    <string name="info_prolongation">Résultat à la fin du temps règlementaire, les prolongations ne sont pas comptées </string>
 
 </resources>
