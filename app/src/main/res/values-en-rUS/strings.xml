@@ -72,4 +72,5 @@
     <string name="no_partcipation" translatable="false">No participation</string>
     <string name="info_no_null">No draw mach</string>
     <string name="info_prolongation">Result after the full-time (no extra-time score)</string>
+    <string name="label_username_register">Username (min 5 alphanumeric characters)</string>
 </resources>

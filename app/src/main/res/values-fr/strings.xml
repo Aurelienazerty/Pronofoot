@@ -92,5 +92,6 @@
     <string name="no_partcipation">Aucune participation</string>
     <string name="info_no_null">Pas de match null</string>
     <string name="info_prolongation">Résultat à la fin du temps règlementaire, les prolongations ne sont pas comptées </string>
+    <string name="label_username_register">Votre nom d\'utlisateur (min 5 caractères alphanumériques)</string>
 
 </resources>

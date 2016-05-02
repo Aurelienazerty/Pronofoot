@@ -21,18 +21,6 @@
             android:paddingTop="5dp" >
 
             <TextView
-                android:id="@+id/register_lbl_username"
-                style="@style/Label"
-                android:text="@string/label_username" />
-
-            <EditText
-                android:id="@+id/register_username"
-                style="@style/SignInEditText"
-                android:imeOptions="actionNext"
-                android:inputType="textVisiblePassword|textNoSuggestions"
-                android:nextFocusDown="@+id/register_mail" />
-
-            <TextView
                 android:id="@+id/register_lbl_mail"
                 style="@style/Label"
                 android:text="@string/label_mail" />
@@ -43,6 +31,18 @@
                 android:completionThreshold="1"
                 android:imeOptions="actionNext"
                 android:inputType="textEmailAddress"
+                android:nextFocusDown="@+id/register_username" />
+
+            <TextView
+                android:id="@+id/register_lbl_username"
+                style="@style/Label"
+                android:text="@string/label_username_register" />
+
+            <EditText
+                android:id="@+id/register_username"
+                style="@style/SignInEditText"
+                android:imeOptions="actionNext"
+                android:inputType="textVisiblePassword|textNoSuggestions"
                 android:nextFocusDown="@+id/register_password" />
 
             <TextView
@@ -54,7 +54,6 @@
                 android:id="@+id/register_password"
                 style="@style/SignInEditText"
                 android:inputType="textPassword"
-                android:nextFocusDown="@+id/register_password2"
                 android:password="true" />
 
 
@@ -67,7 +66,8 @@
                 style="@style/BouttonPronofoot"
                 android:gravity="center"
                 android:onClick="doRegistration"
-                android:text="@string/label_sign_up" />
+                android:text="@string/label_sign_up"
+                android:layout_gravity="center_horizontal" />
 
         </LinearLayout>
     </ScrollView>

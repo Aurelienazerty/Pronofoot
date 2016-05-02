@@ -70,8 +70,9 @@
 
     <!-- AuthenticatorActivity -->
     <string name="label_username">Username</string>
+    <string name="label_username_register">Username (min 5 alphanumeric characters)</string>
     <string name="label_password">Password</string>
-    <string name="label_sign_in">Login</string>
+    <string name="label_sign_in">Login </string>
     <string name="label_sign_up">Register</string>
     <string name="message_signing_in">Login…</string>
     <string name="blank_field_warning">Please fill the fields</string>

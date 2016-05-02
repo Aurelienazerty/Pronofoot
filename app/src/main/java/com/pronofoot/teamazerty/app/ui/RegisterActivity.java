@@ -19,6 +19,7 @@ import android.widget.TextView;
 import com.github.kevinsawicki.wishlist.Toaster;
 import com.pronofoot.teamazerty.app.R;
 import com.pronofoot.teamazerty.app.core.Constants;
+import com.pronofoot.teamazerty.app.util.Ln;
 import com.pronofoot.teamazerty.app.util.SafeAsyncTask;
 
 import org.apache.http.HttpEntity;
@@ -35,6 +36,8 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import butterknife.InjectView;
 
@@ -239,8 +242,23 @@ public class RegisterActivity extends AbstractPronofootActivity {
                         populated(txtUsername);
 
         //ça ne sert à rien d'aller plus loins
-        return populated && passwordStrong();
+        return populated && passwordStrong() && usernameClean() && validateMail();
 
+    }
+
+    private boolean validateMail() {
+        String pattern = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+        Pattern p =  Pattern.compile(pattern, Pattern.CASE_INSENSITIVE);
+        Matcher m = p.matcher(txtEmail.getText().toString());
+        return m.matches();
+    }
+
+    private boolean usernameClean() {
+        String pattern  = "^([a-z0-9_\\-]+)$";
+        Pattern p =  Pattern.compile(pattern, Pattern.CASE_INSENSITIVE);
+        Matcher m = p.matcher(txtUsername.getText().toString());
+        return m.matches() && txtUsername.length() > 5;
     }
 
     /*private boolean passwordMatch() {
