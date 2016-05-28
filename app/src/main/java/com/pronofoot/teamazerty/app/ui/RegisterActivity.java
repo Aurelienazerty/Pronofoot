@@ -19,6 +19,7 @@ import android.widget.TextView;
 import com.github.kevinsawicki.wishlist.Toaster;
 import com.pronofoot.teamazerty.app.R;
 import com.pronofoot.teamazerty.app.core.Constants;
+import com.pronofoot.teamazerty.app.core.MyHttpClient;
 import com.pronofoot.teamazerty.app.util.Ln;
 import com.pronofoot.teamazerty.app.util.SafeAsyncTask;
 
@@ -28,7 +29,6 @@ import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONObject;
@@ -133,7 +133,7 @@ public class RegisterActivity extends AbstractPronofootActivity {
                 public Boolean call() throws Exception {
                     Boolean res;
 
-                    HttpClient httpclient = new DefaultHttpClient();
+                    HttpClient httpclient = new MyHttpClient();
                     HttpPost httppost = new HttpPost(URL_REGISTER);
 
                     List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);

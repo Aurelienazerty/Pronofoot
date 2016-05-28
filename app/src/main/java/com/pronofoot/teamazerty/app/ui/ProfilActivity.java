@@ -17,6 +17,7 @@ import com.github.kevinsawicki.wishlist.Toaster;
 import com.google.android.gcm.GCMRegistrar;
 import com.pronofoot.teamazerty.app.R;
 import com.pronofoot.teamazerty.app.core.Constants;
+import com.pronofoot.teamazerty.app.core.MyHttpClient;
 import com.pronofoot.teamazerty.app.util.SafeAsyncTask;
 
 import org.apache.http.HttpEntity;
@@ -25,7 +26,6 @@ import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONObject;
@@ -157,7 +157,7 @@ public class ProfilActivity extends AbstractPronofootActivity {
                         editor.apply();
                     }
 
-                    HttpClient httpclient = new DefaultHttpClient();
+                    HttpClient httpclient = new MyHttpClient();
                     HttpPost httppost = new HttpPost(Constants.Http.URL_PROFIL);
                     httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
                     HttpResponse response = httpclient.execute(httppost);

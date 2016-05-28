@@ -31,8 +31,8 @@
     <string name="page_classement_pourcent">% Rank</string>
     <string name="page_derniere_grille">Last result</string>
     <string name="no_classement">No rank</string>
-    <string name="error_loading_classement">Failed to load ranking, try &lt;a href=http://foot.team-azerty.com/>on website&lt;/a></string>
-    <string name="error_loading_resultat">Failed to load last result, try &lt;a href=http://foot.team-azerty.com/>on website&lt;/a></string>
+    <string name="error_loading_classement">Failed to load ranking, try &lt;a href=https://foot.team-azerty.com/>on website&lt;/a></string>
+    <string name="error_loading_resultat">Failed to load last result, try &lt;a href=https://foot.team-azerty.com/>on website&lt;/a></string>
     <string name="label_nom_grille">Grid name</string>
     <string name="grille_date" translatable="false">27/10 11:25</string>
     <string name="format_date">dd/MM hh:mm a</string>
@@ -50,7 +50,7 @@
     <string name="label_victoire_exterieur" translatable="false">2</string>
     <string name="label_equipe_domicile" translatable="false">ASF Andrézieux-Bouthéon</string>
     <string name="label_equipe_exterieure" translatable="false">Zénith Saint-Pétersbourg</string>
-    <string name="no_grille">No grid, click to reload, try &lt;a href=http://foot.team-azerty.com/>on website&lt;/a></string>
+    <string name="no_grille">No grid, click to reload, try &lt;a href=https://foot.team-azerty.com/>on website&lt;/a></string>
     <string name="submit_grille">Send my bet</string>
     <string name="msg_prono_save">Bet saved</string>
     <string name="error_sending_prono">Failed to send you bet</string>
@@ -76,13 +76,13 @@
     <string name="label_sign_up">Register</string>
     <string name="message_signing_in">Login…</string>
     <string name="blank_field_warning">Please fill the fields</string>
-    <string name="signup_link">New user ? &lt;a href=http://www.team-azerty.com/forum/ucp.php?mode=register>register here&lt;/a>.</string>
+    <string name="signup_link">New user ? &lt;a href=https://www.team-azerty.com/forum/ucp.php?mode=register>register here&lt;/a>.</string>
     <string name="message_bad_credentials">Login or password incorrect</string>
     <string name="message_auth_failed">Please fill a password</string>
     <string name="message_auth_failed_new_account">Please fill  a valid login and password</string>
     <string name="error_connect">Login or password incorrect</string>
     <string name="error_network">Can not connect</string>
-    <string name="lost_password">&lt;a href=http://www.team-azerty.com/forum/ucp.php?mode=sendpassword>I lost my password&lt;/a></string>
+    <string name="lost_password">&lt;a href=https://www.team-azerty.com/forum/ucp.php?mode=sendpassword>I lost my password&lt;/a></string>
 
     <!-- Register -->
     <string name="label_password_register">Password (min 5 characters)</string>

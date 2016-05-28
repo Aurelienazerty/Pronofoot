@@ -16,6 +16,7 @@ import android.text.Editable;
 import android.text.Html;
 import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnKeyListener;
@@ -30,6 +31,7 @@ import com.google.android.gcm.GCMRegistrar;
 import com.google.gson.Gson;
 import com.pronofoot.teamazerty.app.R;
 import com.pronofoot.teamazerty.app.core.Constants;
+import com.pronofoot.teamazerty.app.core.MyHttpClient;
 import com.pronofoot.teamazerty.app.core.User;
 import com.pronofoot.teamazerty.app.ui.RegisterActivity;
 import com.pronofoot.teamazerty.app.ui.TextWatcherAdapter;
@@ -42,7 +44,6 @@ import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONObject;
@@ -275,7 +276,7 @@ public class BootstrapAuthenticatorActivity extends SherlockAccountAuthenticator
 
                 Boolean res = false;
 
-                HttpClient httpclient = new DefaultHttpClient();
+                MyHttpClient httpclient = new MyHttpClient();
                 HttpPost httppost = new HttpPost(URL_AUTH);
 
                 List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
@@ -322,11 +323,13 @@ public class BootstrapAuthenticatorActivity extends SherlockAccountAuthenticator
                 String message;
                 // A 404 is returned as an Exception with this message
                 if ("Received authentication challenge is null".equals(cause
-                        .getMessage()))
+                        .getMessage())) {
                     message = getResources().getString(
                             R.string.message_bad_credentials);
-                else
+                } else {
                     message = cause.getMessage();
+                    Log.e("TA", message);
+                }
 
                 Toaster.showLong(BootstrapAuthenticatorActivity.this, message);
             }

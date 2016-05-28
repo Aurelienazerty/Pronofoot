@@ -118,7 +118,7 @@ public class Constants {
         /**
          * Base URL for all requests
          */
-        public static final String URL_BASE = "http://www.team-azerty.com/html/prono-foot/mobile";
+        public static final String URL_BASE = "https://www.team-azerty.com/html/prono-foot/mobile";
 
         /**
          * URL de classement
@@ -165,10 +165,10 @@ public class Constants {
         public static final String HEADER_PARSE_APP_ID = "X-Parse-Application-Id";
         public static final String CONTENT_TYPE_JSON = "application/json";
 
-        public static final String FORUM_PRONOFOOT = "http://www.team-azerty.com/sport/application-mobile-pronofoot-t2878.html";
-        public static final String PROFIL  = "http://www.team-azerty.com/html/membres/profil.php";
-        public static final String REGLEMENT  = "http://www.team-azerty.com/html/prono-foot/reglement.php";
-        public static final String BASE_STAT_USER  = "http://www.team-azerty.com/html/prono-foot/pronostiqueur-";
+        public static final String FORUM_PRONOFOOT = "https://www.team-azerty.com/sport/application-mobile-pronofoot-t2878.html";
+        public static final String PROFIL  = "https://www.team-azerty.com/html/membres/profil.php";
+        public static final String REGLEMENT  = "https://www.team-azerty.com/html/prono-foot/reglement.php";
+        public static final String BASE_STAT_USER  = "https://www.team-azerty.com/html/prono-foot/pronostiqueur-";
         public static final String END_STAT_USER  = ".html";
     }
 

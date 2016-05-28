@@ -27,7 +27,7 @@
     <string name="page_derniere_grille">Dernière grille</string>
     <string name="no_classement">Pas de classement</string>
     <string name="error_loading_classement">Echec lors du chargement du classement</string>
-    <string name="error_loading_resultat">Echec lors du chargement du resultat, essayez &lt;a href=http://foot.team-azerty.com/>sur le site&lt;/a></string>
+    <string name="error_loading_resultat">Echec lors du chargement du resultat, essayez &lt;a href=https://foot.team-azerty.com/>sur le site&lt;/a></string>
     <string name="label_nom_grille">Nom de la grille</string>
     <string name="format_date">dd/MM HH:mm</string>
     <string name="unite_point">Points</string>
@@ -37,7 +37,7 @@
     <string name="page_grille">Pronostiquez</string>
     <string name="page_resultat">Résultats</string>
     <string name="error_loading_grille">Echec lors du chargement de la grille</string>
-    <string name="no_grille">Pas de grille, cliquez sur recharger, essayez &lt;a href=http://foot.team-azerty.com/>sur le site&lt;/a></string>
+    <string name="no_grille">Pas de grille, cliquez sur recharger, essayez &lt;a href=https://foot.team-azerty.com/>sur le site&lt;/a></string>
     <string name="submit_grille">Envoyer mon pronostique</string>
     <string name="msg_prono_save">Pronostiques enregistrés</string>
     <string name="error_sending_prono">Echec lors de l\'envoie du pronostique</string>
@@ -61,13 +61,13 @@
     <string name="label_sign_up">S\'enregistrer</string>
     <string name="message_signing_in">Connexion…</string>
     <string name="blank_field_warning">Veuillez renseigner les champs</string>
-    <string name="signup_link">Nouveau ? &lt;a href=http://www.team-azerty.com/forum/ucp.php?mode=register>Cliquez ici&lt;/a> pour créer un compte.</string>
+    <string name="signup_link">Nouveau ? &lt;a href=https://www.team-azerty.com/forum/ucp.php?mode=register>Cliquez ici&lt;/a> pour créer un compte.</string>
     <string name="message_bad_credentials">Login ou mot de passe incorrect</string>
     <string name="message_auth_failed">Veuillez rentrer un mot de passe valide</string>
     <string name="message_auth_failed_new_account">Veuillez rentrer un mot de passe &amp; login valide</string>
     <string name="error_connect">Login ou mot de passe incorrect</string>
     <string name="error_network">Connexion impossible</string>
-    <string name="lost_password">&lt;a href=http://www.team-azerty.com/forum/ucp.php?mode=sendpassword>J\'ai perdu mon mot de passe&lt;/a></string>
+    <string name="lost_password">&lt;a href=https://www.team-azerty.com/forum/ucp.php?mode=sendpassword>J\'ai perdu mon mot de passe&lt;/a></string>
 
     <!-- Register -->
     <string name="label_password_register">Mot de passe (min 5 caractères)</string>

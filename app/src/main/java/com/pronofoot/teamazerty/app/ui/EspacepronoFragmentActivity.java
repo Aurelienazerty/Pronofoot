@@ -16,6 +16,7 @@ import com.actionbarsherlock.view.Window;
 import com.github.kevinsawicki.wishlist.Toaster;
 import com.pronofoot.teamazerty.app.R;
 import com.pronofoot.teamazerty.app.core.Constants;
+import com.pronofoot.teamazerty.app.core.MyHttpClient;
 import com.pronofoot.teamazerty.app.model.CompetitionSelector;
 import com.pronofoot.teamazerty.app.model.Grille;
 import com.pronofoot.teamazerty.app.model.GrilleNavigator;
@@ -31,7 +32,6 @@ import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONObject;
@@ -229,7 +229,7 @@ public class EspacepronoFragmentActivity extends AbstractPronofootFragmentActivi
                     nameValuePairs.add(p);
                 }
 
-                HttpClient httpclient = new DefaultHttpClient();
+                HttpClient httpclient = new MyHttpClient();
                 HttpPost httppost = new HttpPost(Constants.Http.URL_DO_PRONO);
                 try {
                     httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
